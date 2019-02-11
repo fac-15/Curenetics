@@ -29770,7 +29770,15 @@ function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactRouterDom.Route, {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("ul", null, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/"
+      }, "Home")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/results"
+      }, "Results")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/single-result"
+      }, "Single Result")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/basic-info"
+      }, "Basic Info"))), _react.default.createElement(_reactRouterDom.Route, {
         exact: true,
         path: "/",
         component: _Home.default
@@ -29831,7 +29839,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51386" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51316" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
