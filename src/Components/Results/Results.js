@@ -1,15 +1,23 @@
-import React from 'react';
-import './results.css';
+import React from "react";
+import "./results.css";
 
-const Results = (props) => {
+const Results = props => {
   const resultsList = props.results.results;
 
   return (
-    <div>
+    <section className="main-section">
       <h3>Results</h3>
-      {resultsList ? resultsList.map(item => <li key={item.id}><p>Gender: {item.Gender}</p></li>) : <p>No results</p>}
-    </div>
+      {resultsList ? (
+        resultsList.map(item => (
+          <li key={item.id}>
+            <p>Gender: {item.Gender}</p>
+          </li>
+        ))
+      ) : (
+        <p>No results</p>
+      )}
+    </section>
   );
-}
+};
 
 export default Results;

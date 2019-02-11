@@ -24685,132 +24685,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Header/Header.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-require("./header.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Header = function Header() {
-  return _react.default.createElement("h1", null, "Header");
-};
-
-var _default = Header;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","./header.css":"Components/Header/header.css"}],"Components/Home/home.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Home/Home.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-require("./home.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Home = function Home() {
-  return _react.default.createElement("p", null, "HOME");
-};
-
-var _default = Home;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","./home.css":"Components/Home/home.css"}],"Components/Results/results.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Results/Results.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-require("./results.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Results = function Results(props) {
-  var resultsList = props.results.results;
-  return _react.default.createElement("div", null, _react.default.createElement("h3", null, "Results"), resultsList ? resultsList.map(function (item) {
-    return _react.default.createElement("li", {
-      key: item.id
-    }, _react.default.createElement("p", null, "Gender: ", item.Gender));
-  }) : _react.default.createElement("p", null, "No results"));
-};
-
-var _default = Results;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","./results.css":"Components/Results/results.css"}],"Components/BasicInfo/basic-info.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/BasicInfo/BasicInfo.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-require("./basic-info.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var BasicInfo = function BasicInfo() {
-  return _react.default.createElement("p", null, "BasicInfo");
-};
-
-var _default = BasicInfo;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","./basic-info.css":"Components/BasicInfo/basic-info.css"}],"Components/SingleResult/single-result.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/SingleResult/SingleResult.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-require("./single-result.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var SingleResult = function SingleResult() {
-  return _react.default.createElement("p", null, "SingleResult");
-};
-
-var _default = SingleResult;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","./single-result.css":"Components/SingleResult/single-result.css"}],"../node_modules/warning/warning.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/warning/warning.js":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -29619,7 +29494,156 @@ var _matchPath2 = _interopRequireDefault(require("./matchPath"));
 var _withRouter2 = _interopRequireDefault(require("./withRouter"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./BrowserRouter":"../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../node_modules/react-router-dom/es/HashRouter.js","./Link":"../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../node_modules/react-router-dom/es/Redirect.js","./Route":"../node_modules/react-router-dom/es/Route.js","./Router":"../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../node_modules/react-router-dom/es/Switch.js","./generatePath":"../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../node_modules/react-router-dom/es/withRouter.js"}],"Components/App/App.js":[function(require,module,exports) {
+},{"./BrowserRouter":"../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../node_modules/react-router-dom/es/HashRouter.js","./Link":"../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../node_modules/react-router-dom/es/Redirect.js","./Route":"../node_modules/react-router-dom/es/Route.js","./Router":"../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../node_modules/react-router-dom/es/Switch.js","./generatePath":"../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../node_modules/react-router-dom/es/withRouter.js"}],"Components/Header/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./header.css");
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// this causes problems if Router is removed, though it is technically unused
+var Header = function Header() {
+  return _react.default.createElement("header", null, _react.default.createElement("section", {
+    className: "main-section"
+  }, _react.default.createElement("h1", null, "Logo | Header | Menu"), _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("ul", {
+    className: "nav_menu"
+  }, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/"
+  }, "Home")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/results"
+  }, "Results")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/single-result"
+  }, "Single Result")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/basic-info"
+  }, "Basic Info"))))));
+};
+
+var _default = Header;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./header.css":"Components/Header/header.css","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"Components/Home/home.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Home/Home.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./home.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Home = function Home() {
+  return _react.default.createElement("section", {
+    className: "main-section"
+  }, _react.default.createElement("p", null, "HOME"));
+};
+
+var _default = Home;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./home.css":"Components/Home/home.css"}],"Components/Results/results.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Results/Results.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./results.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Results = function Results(props) {
+  var resultsList = props.results.results;
+  return _react.default.createElement("section", {
+    className: "main-section"
+  }, _react.default.createElement("h3", null, "Results"), resultsList ? resultsList.map(function (item) {
+    return _react.default.createElement("li", {
+      key: item.id
+    }, _react.default.createElement("p", null, "Gender: ", item.Gender));
+  }) : _react.default.createElement("p", null, "No results"));
+};
+
+var _default = Results;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./results.css":"Components/Results/results.css"}],"Components/BasicInfo/basic-info.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/BasicInfo/BasicInfo.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./basic-info.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var BasicInfo = function BasicInfo(props) {
+  // console.log(props);
+  return _react.default.createElement("section", {
+    className: "main-section"
+  }, _react.default.createElement("p", null, "BasicInfo"));
+};
+
+var _default = BasicInfo;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./basic-info.css":"Components/BasicInfo/basic-info.css"}],"Components/SingleResult/single-result.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/SingleResult/SingleResult.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./single-result.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var SingleResult = function SingleResult() {
+  return _react.default.createElement("section", {
+    className: "main-section"
+  }, _react.default.createElement("p", null, "SingleResult"));
+};
+
+var _default = SingleResult;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./single-result.css":"Components/SingleResult/single-result.css"}],"Components/App/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29719,35 +29743,32 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      if (this.state.isLoaded) {// console.log(this.state.results);
+      if (this.state.isLoaded) {
+        // console.log(this.state, this.props);
+        // we want to pass props down to components here, but the links are in the header, which is a child component
+        // path is loading, but component is not, unless refreshed
+        // - fixed by adding Header in router, wrapping all elements in Switch, and removing Router in header
+        return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/",
+          component: _Home.default
+        }), _react.default.createElement(_reactRouterDom.Route, {
+          path: "/results",
+          component: function component() {
+            return _react.default.createElement(_Results.default, {
+              results: _this3.state.results
+            });
+          }
+        }), _react.default.createElement(_reactRouterDom.Route, {
+          path: "/basic-info",
+          component: _BasicInfo.default
+        }), _react.default.createElement(_reactRouterDom.Route, {
+          path: "/single-result",
+          component: _SingleResult.default
+        }))));
+      } else {
+        return _react.default.createElement("h1", null, "loading...");
       }
-
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("ul", null, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/"
-      }, "Home")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/results"
-      }, "Results")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/single-result"
-      }, "Single Result")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/basic-info"
-      }, "Basic Info"))), _react.default.createElement(_reactRouterDom.Route, {
-        exact: true,
-        path: "/",
-        component: _Home.default
-      }), _react.default.createElement(_reactRouterDom.Route, {
-        path: "/results",
-        component: function component() {
-          return _react.default.createElement(_Results.default, {
-            results: _this3.state.results
-          });
-        }
-      }), _react.default.createElement(_reactRouterDom.Route, {
-        path: "/basic-info",
-        component: _BasicInfo.default
-      }), _react.default.createElement(_reactRouterDom.Route, {
-        path: "/single-result",
-        component: _SingleResult.default
-      }))));
     }
   }]);
 
@@ -29795,7 +29816,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50991" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60933" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
