@@ -1,18 +1,15 @@
 import React from 'react';
 import './results.css';
 
-const Results = (props) =>  {
-  if(props){
-    const result = props.results.results;
-    console.log(result);
-}
-  return
-  (
-  if(results) {
-<div><h3>Results</h3><p>{result.Gender}</p></div>
-}
-    );
+const Results = (props) => {
+  const resultsList = props.results.results;
 
+  return (
+    <div>
+      <h3>Results</h3>
+      {resultsList ? resultsList.map(item => <li key={item.id}><p>Gender: {item.Gender}</p></li>) : <p>No results</p>}
+    </div>
+  );
 }
 
 export default Results;
