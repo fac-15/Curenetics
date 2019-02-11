@@ -9,8 +9,10 @@ const Results = props => {
       <h3>Results</h3>
       {resultsList ? (
         resultsList.map(item => (
-          <li key={item.id}>
+          <li key={item.IDInfo.OrgStudyID}>
             <p>Gender: {item.Gender}</p>
+            <p>name: {item.Locations[0].Facility.Name}</p>
+            <p>Zip: {item.Locations[0].Facility.Address.Zip}</p>
           </li>
         ))
       ) : (
