@@ -24720,8 +24720,13 @@ require("./results.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Results = function Results() {
-  return _react.default.createElement("p", null, "Results");
+var Results = function Results(props) {
+  if (props) {
+    var _result = props.results.results;
+    console.log(_result);
+  }
+
+  return _react.default.createElement("div", null, _react.default.createElement("h3", null, "Results"), _react.default.createElement("p", null, result.Gender));
 };
 
 var _default = Results;
@@ -29761,15 +29766,43 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       userinfo: {},
-      results: []
+      results: [],
+      isLoaded: false
     });
 
     return _this;
   }
 
   _createClass(App, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch("http://35.234.148.3:8090/data/trials/uk/YO18/10/m/70/.json").then(function (res) {
+        return res.json();
+      }).then(function (result) {
+        _this2.setState({
+          results: result,
+          isLoaded: true
+        });
+      }, // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      function (error) {
+        _this2.setState({
+          isLoaded: false,
+          error: error
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
+      if (this.state.isLoaded) {// console.log(this.state.results);
+      }
+
       return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("ul", null, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
         to: "/"
       }, "Home")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
@@ -29784,7 +29817,11 @@ function (_React$Component) {
         component: _Home.default
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/results",
-        component: _Results.default
+        component: function component() {
+          return _react.default.createElement(_Results.default, {
+            results: _this3.state.results
+          });
+        }
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/basic-info",
         component: _BasicInfo.default
@@ -29839,7 +29876,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51316" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53484" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
