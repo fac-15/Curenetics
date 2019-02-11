@@ -24753,8 +24753,8 @@ var Results = function Results(props) {
   var resultsList = props.results.results;
   return _react.default.createElement("div", null, _react.default.createElement("h3", null, "Results"), resultsList ? resultsList.map(function (item) {
     return _react.default.createElement("li", {
-      key: item.id
-    }, _react.default.createElement("p", null, "Gender: ", item.Gender));
+      key: item.IDInfo.OrgStudyID
+    }, _react.default.createElement("p", null, "Gender: ", item.Gender), _react.default.createElement("p", null, "name: ", item.Locations[0].Facility.Name), _react.default.createElement("p", null, "Zip: ", item.Locations[0].Facility.Address.Zip));
   }) : _react.default.createElement("p", null, "No results"));
 };
 
@@ -29697,7 +29697,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch("http://35.234.148.3:8090/data/trials/uk/YO18/10/m/70/.json").then(function (res) {
+      fetch("http://35.234.148.3:8090/data/trials/uk/CM23/10/m/70/.json").then(function (res) {
         return res.json();
       }).then(function (result) {
         _this2.setState({
@@ -29795,7 +29795,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50991" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49154" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

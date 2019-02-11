@@ -17,7 +17,7 @@ class App extends React.Component {
     isLoaded: false
   };
   componentDidMount() {
-    fetch("http://35.234.148.3:8090/data/trials/uk/YO18/10/m/70/.json")
+    fetch("http://35.234.148.3:8090/data/trials/uk/CM23/10/m/70/.json")
       .then(res => res.json())
       .then(
         (result) => {
