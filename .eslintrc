@@ -1,0 +1,9 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "react-minimal"
+    ],
+    "rules": {
+        "no-console": "off"
+    }
+}
