@@ -29634,12 +29634,111 @@ require("./basic-info.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var BasicInfo = function BasicInfo(props) {
-  // console.log(props);
-  return _react.default.createElement("section", {
-    className: "main-section"
-  }, _react.default.createElement("p", null, "BasicInfo"));
-};
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var BasicInfo =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(BasicInfo, _React$Component);
+
+  function BasicInfo() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, BasicInfo);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(BasicInfo)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      selectedGender: "other",
+      postCode: "",
+      age: ""
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleOptionChange", function (event) {
+      _this.setState({
+        selectedGender: event.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handlePostCode", function (event) {
+      _this.setState({
+        postCode: event.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleAgeChange", function (event) {
+      _this.setState({
+        age: event.target.value
+      });
+
+      console.log(_this.state.age);
+    });
+
+    return _this;
+  }
+
+  _createClass(BasicInfo, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("section", {
+        className: "main-section"
+      }, _react.default.createElement("h2", null, "BasicInfo"), _react.default.createElement("form", null, _react.default.createElement("h4", null, "Post Code"), _react.default.createElement("input", {
+        onChange: this.handlePostCode,
+        type: "text"
+      }), _react.default.createElement("h4", null, "Gender"), _react.default.createElement("div", {
+        className: "radio"
+      }, _react.default.createElement("label", null, _react.default.createElement("input", {
+        type: "radio",
+        value: "female",
+        checked: this.state.selectedGender === "female",
+        onChange: this.handleOptionChange
+      }), "female")), _react.default.createElement("div", {
+        className: "radio"
+      }, _react.default.createElement("label", null, _react.default.createElement("input", {
+        type: "radio",
+        value: "male",
+        checked: this.state.selectedGender === "male",
+        onChange: this.handleOptionChange
+      }), "male")), _react.default.createElement("div", {
+        className: "radio"
+      }, _react.default.createElement("label", null, _react.default.createElement("input", {
+        type: "radio",
+        value: "other",
+        checked: this.state.selectedGender === "other",
+        onChange: this.handleOptionChange
+      }), "other")), _react.default.createElement("h4", null, "Age"), _react.default.createElement("input", {
+        type: "number",
+        onChange: this.handleAgeChange
+      })), _react.default.createElement("section", null, _react.default.createElement("p", null, "Are you ok with us using your selection to filter results for you?"), _react.default.createElement("button", null, "Yes"), _react.default.createElement("button", null, "No")));
+    }
+  }]);
+
+  return BasicInfo;
+}(_react.default.Component);
 
 var _default = BasicInfo;
 exports.default = _default;
@@ -29870,7 +29969,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55366" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53806" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
