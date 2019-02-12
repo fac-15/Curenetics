@@ -18,13 +18,9 @@ class App extends React.Component {
       gender: "m",
     },
     results: [],
-    isLoading: true,
+    isLoading: false,
     error: false,
   };
-
-  componentDidMount() {
-    this.getTrials();
-  }
 
   getTrials = () => {
     const { postCode, age, gender } = this.state.userInfo;
