@@ -12,7 +12,7 @@ class App extends React.Component {
   state = {
     userinfo: {},
     results: [],
-    isLoaded: false
+    isLoaded: false,
   };
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class App extends React.Component {
         result => {
           this.setState({
             results: result,
-            isLoaded: true
+            isLoaded: true,
           });
         },
         // Note: it's important to handle errors here
@@ -31,7 +31,7 @@ class App extends React.Component {
         error => {
           this.setState({
             isLoaded: false,
-            error
+            error,
           });
         }
       );
@@ -50,10 +50,7 @@ class App extends React.Component {
             <Header />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route
-                path="/results"
-                component={() => <Results results={this.state.results} />}
-              />
+              <Route path="/results" component={() => <Results results={this.state.results} />} />
               <Route path="/basic-info" component={BasicInfo} />
               <Route path="/single-result" component={SingleResult} />
             </Switch>
