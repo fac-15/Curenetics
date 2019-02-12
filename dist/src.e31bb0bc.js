@@ -29519,11 +29519,13 @@ var Header = function Header() {
     className: "header"
   }, _react.default.createElement("section", {
     className: "main-section"
-  }, _react.default.createElement("div", null, _react.default.createElement("img", {
+  }, _react.default.createElement("div", {
+    className: "lockup"
+  }, _react.default.createElement("img", {
     src: logo,
     className: "header-logo"
   }), _react.default.createElement("h1", {
-    className: "curenetics"
+    className: "app-title"
   }, "Curenetics")), _react.default.createElement("button", {
     className: "menu-button"
   }, _react.default.createElement("svg", {
@@ -29594,7 +29596,17 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Results/Results.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/SmallCard/arrow-backward.svg":[function(require,module,exports) {
+module.exports = "/arrow-backward.eb359160.svg";
+},{}],"Components/SmallCard/arrow-forward.svg":[function(require,module,exports) {
+module.exports = "/arrow-forward.f6415d19.svg";
+},{}],"Components/SmallCard/calendar.svg":[function(require,module,exports) {
+module.exports = "/calendar.da6fa3e7.svg";
+},{}],"Components/SmallCard/marker.svg":[function(require,module,exports) {
+module.exports = "/marker.0c388467.svg";
+},{}],"Components/SmallCard/summary-file.svg":[function(require,module,exports) {
+module.exports = "/summary-file.23b785c7.svg";
+},{}],"Components/Results/Results.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29608,28 +29620,85 @@ require("./results.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import SmallCard from "../SmallCard/SmallCard";
+// maybe move these out of small card
+var back = require("../SmallCard/arrow-backward.svg");
+
+var forward = require("../SmallCard/arrow-forward.svg"); // const tick = require("../SmallCard/tick.svg");
+// const cross = require("../SmallCard/cross.svg");
+
+
+var calendar = require("../SmallCard/calendar.svg");
+
+var marker = require("../SmallCard/marker.svg");
+
+var file = require("../SmallCard/summary-file.svg");
+
 var Results = function Results(props) {
-  var resultsList = props.results.results;
-  var error = props.error;
+  // get results, error messages etc
+  var resultsList = props.results.results.results;
+  var noResultsMsg = props.results.noResultsMsg;
+  console.log(resultsList); // prepare the results list
+
+  var resultsArray = resultsList.map(function (item) {
+    return (// make variables for things to keep them readable
+      _react.default.createElement("li", {
+        className: "small-card",
+        key: item.IDInfo.OrgStudyID
+      }, _react.default.createElement("div", {
+        className: "card-row"
+      }, item.Locations[0].Status ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+        className: "open"
+      }, _react.default.createElement("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "48",
+        height: "48",
+        viewBox: "0 0 48 48"
+      }, _react.default.createElement("path", {
+        d: "M18 32.34L9.66 24l-2.83 2.83L18 38l24-24-2.83-2.83z"
+      }))), _react.default.createElement("div", {
+        className: "open"
+      }, "Recruiting")) : _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+        className: "closed"
+      }, _react.default.createElement("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "48",
+        height: "48",
+        viewBox: "0 0 48 48"
+      }, _react.default.createElement("path", {
+        d: "M38 12.83L35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z"
+      }))), _react.default.createElement("div", {
+        className: "closed"
+      }, "Not Recruiting"))), _react.default.createElement("h3", null, "Title of Trial"), _react.default.createElement("div", {
+        className: "card-row"
+      }, _react.default.createElement("div", null, _react.default.createElement("img", {
+        src: calendar,
+        alt: "starting date of trial"
+      })), _react.default.createElement("div", null, "Starting Date: starting date")), _react.default.createElement("div", {
+        className: "card-row"
+      }, _react.default.createElement("div", null, _react.default.createElement("img", {
+        src: marker,
+        alt: "location of trial"
+      })), _react.default.createElement("div", null, item.Locations[0].Facility.Name)), _react.default.createElement("div", {
+        className: "card-row"
+      }, _react.default.createElement("div", null, _react.default.createElement("img", {
+        src: file,
+        alt: "summaryof trial"
+      })), _react.default.createElement("div", null, "Summary:")))
+    );
+  }); // if there are no results, display an error message
+
+  var displayResults = resultsArray.length > 0 ? _react.default.createElement("ul", {
+    className: "results-list"
+  }, resultsArray) : _react.default.createElement("p", null, noResultsMsg);
   return _react.default.createElement("section", {
     className: "main-section"
-  }, _react.default.createElement("h2", null, resultsList.length, " results"), resultsList ? resultsList.map(function (item) {
-    return _react.default.createElement("li", {
-      key: item.IDInfo.OrgStudyID
-    }, _react.default.createElement("p", null, "Gender: ", item.Gender), _react.default.createElement("p", null, "Location : ", item.Locations[0].Facility.Name), _react.default.createElement("p", null, "Zip: ", item.Locations[0].Facility.Address.Zip), _react.default.createElement("p", null, "Recruiting: ", item.Locations[0].Status ? item.Locations[0].Status : "N/A"), _react.default.createElement("ul", null, "Conditions:", item.Conditions.map(function (con) {
-      return _react.default.createElement("li", {
-        key: con,
-        style: {
-          marginLeft: "2rem"
-        }
-      }, con);
-    })));
-  }) : _react.default.createElement("p", null, "No results"));
+  }, _react.default.createElement("h2", null, resultsList.length, " results"), displayResults);
 };
 
 var _default = Results;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./results.css":"Components/Results/results.css"}],"Components/BasicInfo/basic-info.css":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./results.css":"Components/Results/results.css","../SmallCard/arrow-backward.svg":"Components/SmallCard/arrow-backward.svg","../SmallCard/arrow-forward.svg":"Components/SmallCard/arrow-forward.svg","../SmallCard/calendar.svg":"Components/SmallCard/calendar.svg","../SmallCard/marker.svg":"Components/SmallCard/marker.svg","../SmallCard/summary-file.svg":"Components/SmallCard/summary-file.svg"}],"Components/BasicInfo/basic-info.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -29763,7 +29832,8 @@ function (_React$Component) {
       },
       results: [],
       isLoading: true,
-      error: false
+      error: false,
+      noResultsMsg: "Sorry, there are no results"
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getTrials", function () {
@@ -29826,7 +29896,7 @@ function (_React$Component) {
           path: "/results",
           component: function component() {
             return _react.default.createElement(_Results.default, {
-              results: _this2.state.results
+              results: _this2.state
             });
           }
         }), _react.default.createElement(_reactRouterDom.Route, {
@@ -29884,7 +29954,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49236" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49470" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -10,9 +10,9 @@ const Header = () => {
   return (
     <header className="header">
       <section className="main-section">
-        <div>
+        <div className="lockup">
           <img src={logo} className="header-logo" />
-          <h1 className="curenetics">Curenetics</h1>
+          <h1 className="app-title">Curenetics</h1>
         </div>
         <button className="menu-button">
           <svg

@@ -4,17 +4,21 @@
   border-bottom: 2px solid var(--dark-blue);
 }
 
+.lockup {
+  display: flex;
+  align-items: center;
+}
 .header-logo {
   width: 1.7rem;
   height: 1.7rem;
 }
-h1.curenetics {
+.app-title {
   font-size: 1.6rem;
   color: var(--dark-blue);
   text-align: left;
-  display: inline;
-  margin-left: 0.4rem;
-  font-weight: 600;
+  margin-left: 0.5rem;
+  font-weight: var(--bold);
+  margin-bottom: 0;
 }
 .header .main-section {
   display: flex;
@@ -79,6 +83,32 @@ h1 {
   background-color: white;
 }
 /* results css to go here */
+.results-list {
+  display: flex;
+  flex-direction: column;
+}
+.small-card {
+  background-color: white;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.25rem 0.35rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+.card-row {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+/* open closed states */
+.open {
+  color: var(--green);
+  fill: var(--green);
+}
+.closed {
+  color: var(--red);
+  fill: var(--red);
+}
 /* basic info css to go here */
 button {
   color: red;
@@ -90,6 +120,9 @@ button {
   --dark-blue: #027dd7; /* button extra dark */
   --dark-grey: #4b4b4b; /* text */
   --green: #3a9732; /* recruiting */
+  --red: tomato;
+  --normal: 400;
+  --bold: 600;
 }
 * {
   box-sizing: border-box;
@@ -97,7 +130,7 @@ button {
 body {
   font-size: 1.25rem;
   font-family: "Lato", sans-serif;
-  font-weight: 400;
+  font-weight: var(--normal);
   line-height: 1.4;
   color: var(--dark-grey);
   background-color: var(--light-blue);
@@ -106,7 +139,7 @@ body {
 form,
 button {
   font-family: "Lato", sans-serif;
-  font-weight: 400;
+  font-weight: var(--normal);
   border: 0;
   padding: 0;
   background-color: transparent;

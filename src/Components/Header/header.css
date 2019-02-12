@@ -4,17 +4,21 @@
   border-bottom: 2px solid var(--dark-blue);
 }
 
+.lockup {
+  display: flex;
+  align-items: center;
+}
 .header-logo {
   width: 1.7rem;
   height: 1.7rem;
 }
-h1.curenetics {
+.app-title {
   font-size: 1.6rem;
   color: var(--dark-blue);
   text-align: left;
-  display: inline;
-  margin-left: 0.4rem;
-  font-weight: 600;
+  margin-left: 0.5rem;
+  font-weight: var(--bold);
+  margin-bottom: 0;
 }
 .header .main-section {
   display: flex;
