@@ -12,38 +12,35 @@ class App extends React.Component {
   state = {
     userinfo: {},
     results: [],
-    isLoaded: false,
+    isLoading: true,
+    error: false
   };
 
   componentDidMount() {
-    fetch("http://35.234.148.3:8090/data/trials/uk/CM23/10/m/70/.json")
+    fetch("http://35.234.148.3:8090/data/trials/uk/CM27jp/100/m/70/.json")
       .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            results: result,
-            isLoaded: true,
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
-          this.setState({
-            isLoaded: false,
-            error,
-          });
-        }
+      .then(result =>
+        this.setState({
+          results: result,
+          isLoading: false
+        })
+      )
+      .catch(error =>
+        this.setState({
+          isLoading: false,
+          results: [],
+          error
+        })
       );
   }
 
   render() {
-    if (this.state.isLoaded) {
+    const { isLoading, error, results } = this.state;
+    if (isLoading) {
       // console.log(this.state, this.props);
-
-      // we want to pass props down to components here, but the links are in the header, which is a child component
-      // path is loading, but component is not, unless refreshed
-      // - fixed by adding Header in router, wrapping all elements in Switch, and removing Router in header
+      return <h1> loading ... </h1>;
+    }
+    if (!isLoading && results) {
       return (
         <Router>
           <>
@@ -57,8 +54,6 @@ class App extends React.Component {
           </>
         </Router>
       );
-    } else {
-      return <h1>loading...</h1>;
     }
   }
 }

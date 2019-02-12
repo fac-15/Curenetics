@@ -29577,12 +29577,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Results = function Results(props) {
   var resultsList = props.results.results;
+  var error = props.error;
   return _react.default.createElement("section", {
     className: "main-section"
   }, _react.default.createElement("h3", null, "Results"), resultsList ? resultsList.map(function (item) {
     return _react.default.createElement("li", {
       key: item.IDInfo.OrgStudyID
-    }, _react.default.createElement("p", null, "Gender: ", item.Gender), _react.default.createElement("p", null, "name: ", item.Locations[0].Facility.Name), _react.default.createElement("p", null, "Zip: ", item.Locations[0].Facility.Address.Zip));
+    }, _react.default.createElement("p", null, "Gender: ", item.Gender), _react.default.createElement("p", null, "Location : ", item.Locations[0].Facility.Name), _react.default.createElement("p", null, "Zip: ", item.Locations[0].Facility.Address.Zip), _react.default.createElement("p", null, "Recruiting:", " ", item.Locations[0].Status ? item.Locations[0].Status : "N/A"), _react.default.createElement("ul", null, "Conditions:", item.Conditions.map(function (con) {
+      return _react.default.createElement("li", {
+        key: con,
+        style: {
+          marginLeft: "2rem"
+        }
+      }, con);
+    })));
   }) : _react.default.createElement("p", null, "No results"));
 };
 
@@ -29710,7 +29718,8 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       userinfo: {},
       results: [],
-      isLoaded: false
+      isLoading: true,
+      error: false
     });
 
     return _this;
@@ -29721,19 +29730,17 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch("http://35.234.148.3:8090/data/trials/uk/CM23/10/m/70/.json").then(function (res) {
+      fetch("http://35.234.148.3:8090/data/trials/uk/CM27jp/100/m/70/.json").then(function (res) {
         return res.json();
       }).then(function (result) {
-        _this2.setState({
+        return _this2.setState({
           results: result,
-          isLoaded: true
+          isLoading: false
         });
-      }, // Note: it's important to handle errors here
-      // instead of a catch() block so that we don't swallow
-      // exceptions from actual bugs in components.
-      function (error) {
-        _this2.setState({
-          isLoaded: false,
+      }).catch(function (error) {
+        return _this2.setState({
+          isLoading: false,
+          results: [],
           error: error
         });
       });
@@ -29743,11 +29750,17 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      if (this.state.isLoaded) {
+      var _this$state = this.state,
+          isLoading = _this$state.isLoading,
+          error = _this$state.error,
+          results = _this$state.results;
+
+      if (isLoading) {
         // console.log(this.state, this.props);
-        // we want to pass props down to components here, but the links are in the header, which is a child component
-        // path is loading, but component is not, unless refreshed
-        // - fixed by adding Header in router, wrapping all elements in Switch, and removing Router in header
+        return _react.default.createElement("h1", null, " loading ... ");
+      }
+
+      if (!isLoading && results) {
         return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
           exact: true,
           path: "/",
@@ -29766,8 +29779,6 @@ function (_React$Component) {
           path: "/single-result",
           component: _SingleResult.default
         }))));
-      } else {
-        return _react.default.createElement("h1", null, "loading...");
       }
     }
   }]);
@@ -29788,7 +29799,7 @@ var _App = _interopRequireDefault(require("./Components/App/App"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render(_react.default.createElement(_App.default, null), document.getElementById('root'));
+_reactDom.default.render(_react.default.createElement(_App.default, null), document.getElementById("root"));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./Components/App/App":"Components/App/App.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -29816,7 +29827,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60933" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60542" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
