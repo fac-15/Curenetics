@@ -5,10 +5,11 @@ import "./header.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const Header = () => {
+  // const logo = require("./curenetics-blue-01.svg");
   return (
-    <header>
+    <header className="header">
       <section className="main-section">
-        <h1>Logo | Header | Menu</h1>
+        <p>Logo | Header | Menu</p>
 
         <>
           <ul className="nav_menu">

@@ -10,10 +10,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends React.Component {
   state = {
+    appName: "Curenetics",
     userinfo: {},
     results: [],
     isLoading: true,
-    error: false
+    error: false,
   };
 
   componentDidMount() {
@@ -22,20 +23,20 @@ class App extends React.Component {
       .then(result =>
         this.setState({
           results: result,
-          isLoading: false
+          isLoading: false,
         })
       )
       .catch(error =>
         this.setState({
           isLoading: false,
           results: [],
-          error
+          error,
         })
       );
   }
 
   render() {
-    const { isLoading, error, results } = this.state;
+    const { isLoading, error, results, appName } = this.state;
     if (isLoading) {
       // console.log(this.state, this.props);
       return <h1> loading ... </h1>;
@@ -46,7 +47,7 @@ class App extends React.Component {
           <>
             <Header />
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={() => <Home appName={this.state.appName} />} />
               <Route path="/results" component={() => <Results results={this.state.results} />} />
               <Route path="/basic-info" component={BasicInfo} />
               <Route path="/single-result" component={SingleResult} />
