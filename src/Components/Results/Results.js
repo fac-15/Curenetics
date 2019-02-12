@@ -17,9 +17,9 @@ const Results = props => {
             <p>Recruiting: {item.Locations[0].Status ? item.Locations[0].Status : "N/A"}</p>
             <ul>
               Conditions:
-              {item.Conditions.map(con => (
-                <li key={con} style={{ marginLeft: "2rem" }}>
-                  {con}
+              {item.Conditions.map(cond => (
+                <li key={cond} style={{ marginLeft: "2rem" }}>
+                  {cond}
                 </li>
               ))}
             </ul>
