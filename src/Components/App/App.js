@@ -47,10 +47,7 @@ class App extends React.Component {
             <Header />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route
-                path="/results"
-                component={() => <Results results={this.state.results} />}
-              />
+              <Route path="/results" component={() => <Results results={this.state.results} />} />
               <Route path="/basic-info" component={BasicInfo} />
               <Route path="/single-result" component={SingleResult} />
             </Switch>
