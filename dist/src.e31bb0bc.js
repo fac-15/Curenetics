@@ -29673,14 +29673,14 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(BasicInfo)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      selectedGender: "other",
+      gender: "m",
       postCode: "",
       age: ""
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleOptionChange", function (event) {
       _this.setState({
-        selectedGender: event.target.value
+        gender: event.target.value
       });
     });
 
@@ -29694,8 +29694,6 @@ function (_React$Component) {
       _this.setState({
         age: event.target.value
       });
-
-      console.log(_this.state.age);
     });
 
     return _this;
@@ -29704,6 +29702,8 @@ function (_React$Component) {
   _createClass(BasicInfo, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return _react.default.createElement("section", {
         className: "main-section"
       }, _react.default.createElement("h2", null, "BasicInfo"), _react.default.createElement("form", null, _react.default.createElement("h4", null, "Post Code"), _react.default.createElement("input", {
@@ -29713,27 +29713,31 @@ function (_React$Component) {
         className: "radio"
       }, _react.default.createElement("label", null, _react.default.createElement("input", {
         type: "radio",
-        value: "female",
-        checked: this.state.selectedGender === "female",
+        value: "f",
+        checked: this.state.gender === "f",
         onChange: this.handleOptionChange
       }), "female")), _react.default.createElement("div", {
         className: "radio"
       }, _react.default.createElement("label", null, _react.default.createElement("input", {
         type: "radio",
-        value: "male",
-        checked: this.state.selectedGender === "male",
+        value: "m",
+        checked: this.state.gender === "m",
         onChange: this.handleOptionChange
       }), "male")), _react.default.createElement("div", {
         className: "radio"
       }, _react.default.createElement("label", null, _react.default.createElement("input", {
         type: "radio",
-        value: "other",
-        checked: this.state.selectedGender === "other",
+        value: "o",
+        checked: this.state.gender === "o",
         onChange: this.handleOptionChange
       }), "other")), _react.default.createElement("h4", null, "Age"), _react.default.createElement("input", {
         type: "number",
         onChange: this.handleAgeChange
-      })), _react.default.createElement("section", null, _react.default.createElement("p", null, "Are you ok with us using your selection to filter results for you?"), _react.default.createElement("button", null, "Yes"), _react.default.createElement("button", null, "No")));
+      })), _react.default.createElement("section", null, _react.default.createElement("p", null, "Are you ok with us using your selection to filter results for you?"), _react.default.createElement("button", {
+        onClick: function onClick() {
+          return _this2.props.onSubmit(_this2.state);
+        }
+      }, "Yes"), _react.default.createElement("button", null, "No")));
     }
   }]);
 
@@ -29840,11 +29844,10 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       appName: "Curenetics",
-      userinfo: {
-        zip: "CM27jp",
-        age: "10",
-        gender: "m",
-        distance: "100"
+      userInfo: {
+        postCode: "CM27jp",
+        age: "70",
+        gender: "m"
       },
       results: [],
       isLoading: true,
@@ -29852,13 +29855,13 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getTrials", function () {
-      var _this$state$userinfo = _this.state.userinfo,
-          zip = _this$state$userinfo.zip,
-          age = _this$state$userinfo.age,
-          gender = _this$state$userinfo.gender,
-          distance = _this$state$userinfo.distance;
+      var _this$state$userInfo = _this.state.userInfo,
+          postCode = _this$state$userInfo.postCode,
+          age = _this$state$userInfo.age,
+          gender = _this$state$userInfo.gender;
       var baseUrl = "http://35.234.148.3:8090/data/trials/uk/";
-      fetch("".concat(baseUrl).concat(zip, "/").concat(distance, "/").concat(gender, "/").concat(age, "/.json")).then(function (res) {
+      var distance = "100";
+      fetch("".concat(baseUrl).concat(postCode, "/").concat(distance, "/").concat(gender, "/").concat(age, "/.json")).then(function (res) {
         return res.json();
       }).then(function (result) {
         return _this.setState({
@@ -29872,6 +29875,14 @@ function (_React$Component) {
           error: error
         });
       });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSubmit", function (userInfo) {
+      _this.setState({
+        userInfo: userInfo
+      });
+
+      _this.getTrials();
     });
 
     return _this;
@@ -29916,7 +29927,11 @@ function (_React$Component) {
           }
         }), _react.default.createElement(_reactRouterDom.Route, {
           path: "/basic-info",
-          component: _BasicInfo.default
+          component: function component() {
+            return _react.default.createElement(_BasicInfo.default, {
+              onSubmit: _this2.handleSubmit
+            });
+          }
         }), _react.default.createElement(_reactRouterDom.Route, {
           path: "/single-result",
           component: _SingleResult.default
@@ -29969,7 +29984,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53806" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52448" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

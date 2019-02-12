@@ -3,13 +3,13 @@ import "./basic-info.css";
 
 class BasicInfo extends React.Component {
   state = {
-    selectedGender: "other",
+    gender: "m",
     postCode: "",
     age: "",
   };
 
   handleOptionChange = event => {
-    this.setState({ selectedGender: event.target.value });
+    this.setState({ gender: event.target.value });
   };
 
   handlePostCode = event => {
@@ -18,7 +18,6 @@ class BasicInfo extends React.Component {
 
   handleAgeChange = event => {
     this.setState({ age: event.target.value });
-    console.log(this.state.age);
   };
 
   render() {
@@ -33,8 +32,8 @@ class BasicInfo extends React.Component {
             <label>
               <input
                 type="radio"
-                value="female"
-                checked={this.state.selectedGender === "female"}
+                value="f"
+                checked={this.state.gender === "f"}
                 onChange={this.handleOptionChange}
               />
               female
@@ -44,8 +43,8 @@ class BasicInfo extends React.Component {
             <label>
               <input
                 type="radio"
-                value="male"
-                checked={this.state.selectedGender === "male"}
+                value="m"
+                checked={this.state.gender === "m"}
                 onChange={this.handleOptionChange}
               />
               male
@@ -55,8 +54,8 @@ class BasicInfo extends React.Component {
             <label>
               <input
                 type="radio"
-                value="other"
-                checked={this.state.selectedGender === "other"}
+                value="o"
+                checked={this.state.gender === "o"}
                 onChange={this.handleOptionChange}
               />
               other
@@ -67,7 +66,7 @@ class BasicInfo extends React.Component {
         </form>
         <section>
           <p>Are you ok with us using your selection to filter results for you?</p>
-          <button>Yes</button>
+          <button onClick={() => this.props.onSubmit(this.state)}>Yes</button>
           <button>No</button>
         </section>
       </section>

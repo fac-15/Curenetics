@@ -12,11 +12,10 @@ import "./app.css";
 class App extends React.Component {
   state = {
     appName: "Curenetics",
-    userinfo: {
-      zip: "CM27jp",
-      age: "10",
+    userInfo: {
+      postCode: "CM27jp",
+      age: "70",
       gender: "m",
-      distance: "100",
     },
     results: [],
     isLoading: true,
@@ -28,9 +27,10 @@ class App extends React.Component {
   }
 
   getTrials = () => {
-    const { zip, age, gender, distance } = this.state.userinfo;
+    const { postCode, age, gender } = this.state.userInfo;
     const baseUrl = "http://35.234.148.3:8090/data/trials/uk/";
-    fetch(`${baseUrl}${zip}/${distance}/${gender}/${age}/.json`)
+    const distance = "100";
+    fetch(`${baseUrl}${postCode}/${distance}/${gender}/${age}/.json`)
       .then(res => res.json())
       .then(result =>
         this.setState({
@@ -47,6 +47,11 @@ class App extends React.Component {
       );
   };
 
+  handleSubmit = userInfo => {
+    this.setState({ userInfo });
+    this.getTrials();
+  };
+
   render() {
     const { isLoading, error, results, appName } = this.state;
     if (isLoading) {
@@ -61,7 +66,10 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={() => <Home appName={this.state.appName} />} />
               <Route path="/results" component={() => <Results results={this.state.results} />} />
-              <Route path="/basic-info" component={BasicInfo} />
+              <Route
+                path="/basic-info"
+                component={() => <BasicInfo onSubmit={this.handleSubmit} />}
+              />
               <Route path="/single-result" component={SingleResult} />
             </Switch>
           </>
