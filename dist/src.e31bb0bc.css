@@ -1,21 +1,94 @@
 /* global styles to go here */
+:root {
+  --light-blue: #81c3ff; /* background */
+  --med-blue: #0094ff; /* button normal */
+  --dark-blue: #027dd7; /* button extra dark */
+  --dark-grey: #4b4b4b; /* text */
+  --green: #3a9732; /* recruiting */
+}
+* {
+  box-sizing: border-box;
+}
 body {
   font-size: 1.25rem;
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.4;
-  color: black;
+  color: var(--dark-grey);
+  background-color: var(--light-blue);
+}
+
+form,
+button {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
 }
 
 .main-section {
   max-width: 50rem;
   width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 2rem;
 }
 /* header css */
+.header {
+  background-color: white;
+}
 /* home page css */
-/* results css to go here */
+h1 {
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+}
+.body-logo {
+  display: block;
+  margin: 0 auto;
+  max-width: 25%;
+}
+
+.main-section.home {
+  display: flex;
+  height: 80vh;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* button css - move to component */
+/* link buttons and toggle buttons */
+/* .link-button {
+    border: 0;
+    padding: 0;
+} */
+.link-button a {
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  color: white;
+  transition: all ease-in-out 0.3s;
+}
+/* medium */
+.link-button.medium-blue a {
+  background-color: var(--med-blue);
+}
+.link-button.medium-blue a:hover {
+  color: var(--med-blue);
+  background-color: white;
+}
+/* dark */
+.link-button.dark-blue a {
+  background-color: var(--dark-blue);
+}
+.link-button.dark-blue a:hover {
+  color: var(--dark-blue);
+  background-color: white;
+}
+button {
+  color: red;
+}
 /* basic info css to go here */
 button {
   color: red;

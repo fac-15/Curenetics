@@ -29512,9 +29512,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // this causes problems if Router is removed, though it is technically unused
 var Header = function Header() {
-  return _react.default.createElement("header", null, _react.default.createElement("section", {
+  // const logo = require("./curenetics-blue-01.svg");
+  return _react.default.createElement("header", {
+    className: "header"
+  }, _react.default.createElement("section", {
     className: "main-section"
-  }, _react.default.createElement("h1", null, "Logo | Header | Menu"), _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("ul", {
+  }, _react.default.createElement("p", null, "Logo | Header | Menu"), _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("ul", {
     className: "nav_menu"
   }, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
     to: "/"
@@ -29534,7 +29537,9 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Home/Home.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Home/curenetics-blue-01.svg":[function(require,module,exports) {
+module.exports = "/curenetics-blue-01.5f7e7dbe.svg";
+},{}],"Components/Home/Home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29546,17 +29551,36 @@ var _react = _interopRequireDefault(require("react"));
 
 require("./home.css");
 
+var _reactRouterDom = require("react-router-dom");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Home = function Home() {
+// import "../Button/Button";
+var Home = function Home(props) {
+  var logo = require("./curenetics-blue-01.svg");
+
+  console.log(props);
+  var title = props.appName;
   return _react.default.createElement("section", {
-    className: "main-section"
-  }, _react.default.createElement("p", null, "HOME"));
+    className: "main-section home"
+  }, _react.default.createElement("h1", null, "Hello, would you like help to find a clinical trail?"), _react.default.createElement("button", {
+    className: "link-button medium-blue"
+  }, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/basic-info"
+  }, "Find a Trial")), _react.default.createElement("button", {
+    className: "link-button dark-blue"
+  }, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/results"
+  }, "View all Trials")), _react.default.createElement("img", {
+    src: logo,
+    className: "body-logo",
+    alt: title
+  }));
 };
 
 var _default = Home;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./home.css":"Components/Home/home.css"}],"Components/Results/results.css":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./home.css":"Components/Home/home.css","react-router-dom":"../node_modules/react-router-dom/es/index.js","./curenetics-blue-01.svg":"Components/Home/curenetics-blue-01.svg"}],"Components/Results/results.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -29716,6 +29740,7 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      appName: "Curenetics",
       userinfo: {},
       results: [],
       isLoading: true,
@@ -29753,7 +29778,8 @@ function (_React$Component) {
       var _this$state = this.state,
           isLoading = _this$state.isLoading,
           error = _this$state.error,
-          results = _this$state.results;
+          results = _this$state.results,
+          appName = _this$state.appName;
 
       if (isLoading) {
         // console.log(this.state, this.props);
@@ -29764,7 +29790,11 @@ function (_React$Component) {
         return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
           exact: true,
           path: "/",
-          component: _Home.default
+          component: function component() {
+            return _react.default.createElement(_Home.default, {
+              appName: _this3.state.appName
+            });
+          }
         }), _react.default.createElement(_reactRouterDom.Route, {
           path: "/results",
           component: function component() {
@@ -29827,7 +29857,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60542" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49470" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
