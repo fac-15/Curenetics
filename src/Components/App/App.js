@@ -1,24 +1,36 @@
 import React from "react";
-import "./app.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import Header from "../Header/Header";
 import Home from "../Home/Home";
 import Results from "../Results/Results";
 import BasicInfo from "../BasicInfo/BasicInfo";
 import SingleResult from "../SingleResult/SingleResult";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./app.css";
 
 class App extends React.Component {
   state = {
     appName: "Curenetics",
-    userinfo: {},
+    userinfo: {
+      zip: "CM27jp",
+      age: "10",
+      gender: "m",
+      distance: "100",
+    },
     results: [],
     isLoading: true,
     error: false,
   };
 
   componentDidMount() {
-    fetch("http://35.234.148.3:8090/data/trials/uk/CM27jp/100/m/70/.json")
+    this.getTrials();
+  }
+
+  getTrials = () => {
+    const { zip, age, gender, distance } = this.state.userinfo;
+    const baseUrl = "http://35.234.148.3:8090/data/trials/uk/";
+    fetch(`${baseUrl}${zip}/${distance}/${gender}/${age}/.json`)
       .then(res => res.json())
       .then(result =>
         this.setState({
@@ -33,7 +45,7 @@ class App extends React.Component {
           error,
         })
       );
-  }
+  };
 
   render() {
     const { isLoading, error, results, appName } = this.state;
