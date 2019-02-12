@@ -24608,84 +24608,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"Components/App/app.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Header/header.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/warning/warning.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/warning/warning.js":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -29494,7 +29417,79 @@ var _matchPath2 = _interopRequireDefault(require("./matchPath"));
 var _withRouter2 = _interopRequireDefault(require("./withRouter"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./BrowserRouter":"../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../node_modules/react-router-dom/es/HashRouter.js","./Link":"../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../node_modules/react-router-dom/es/Redirect.js","./Route":"../node_modules/react-router-dom/es/Route.js","./Router":"../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../node_modules/react-router-dom/es/Switch.js","./generatePath":"../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../node_modules/react-router-dom/es/withRouter.js"}],"Components/Header/Header.js":[function(require,module,exports) {
+},{"./BrowserRouter":"../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../node_modules/react-router-dom/es/HashRouter.js","./Link":"../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../node_modules/react-router-dom/es/Redirect.js","./Route":"../node_modules/react-router-dom/es/Route.js","./Router":"../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../node_modules/react-router-dom/es/Switch.js","./generatePath":"../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../node_modules/react-router-dom/es/withRouter.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"Components/Header/header.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Header/Header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29604,10 +29599,10 @@ var Results = function Results(props) {
   var error = props.error;
   return _react.default.createElement("section", {
     className: "main-section"
-  }, _react.default.createElement("h3", null, "Results"), resultsList ? resultsList.map(function (item) {
+  }, _react.default.createElement("h2", null, resultsList.length, " results"), resultsList ? resultsList.map(function (item) {
     return _react.default.createElement("li", {
       key: item.IDInfo.OrgStudyID
-    }, _react.default.createElement("p", null, "Gender: ", item.Gender), _react.default.createElement("p", null, "Location : ", item.Locations[0].Facility.Name), _react.default.createElement("p", null, "Zip: ", item.Locations[0].Facility.Address.Zip), _react.default.createElement("p", null, "Recruiting:", " ", item.Locations[0].Status ? item.Locations[0].Status : "N/A"), _react.default.createElement("ul", null, "Conditions:", item.Conditions.map(function (con) {
+    }, _react.default.createElement("p", null, "Gender: ", item.Gender), _react.default.createElement("p", null, "Location : ", item.Locations[0].Facility.Name), _react.default.createElement("p", null, "Zip: ", item.Locations[0].Facility.Address.Zip), _react.default.createElement("p", null, "Recruiting: ", item.Locations[0].Status ? item.Locations[0].Status : "N/A"), _react.default.createElement("ul", null, "Conditions:", item.Conditions.map(function (con) {
       return _react.default.createElement("li", {
         key: con,
         style: {
@@ -29675,7 +29670,12 @@ var SingleResult = function SingleResult() {
 
 var _default = SingleResult;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./single-result.css":"Components/SingleResult/single-result.css"}],"Components/App/App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./single-result.css":"Components/SingleResult/single-result.css"}],"Components/App/app.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/App/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29685,7 +29685,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-require("./app.css");
+var _reactRouterDom = require("react-router-dom");
 
 var _Header = _interopRequireDefault(require("../Header/Header"));
 
@@ -29697,7 +29697,7 @@ var _BasicInfo = _interopRequireDefault(require("../BasicInfo/BasicInfo"));
 
 var _SingleResult = _interopRequireDefault(require("../SingleResult/SingleResult"));
 
-var _reactRouterDom = require("react-router-dom");
+require("./app.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29741,10 +29741,38 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       appName: "Curenetics",
-      userinfo: {},
+      userinfo: {
+        zip: "CM27jp",
+        age: "10",
+        gender: "m",
+        distance: "100"
+      },
       results: [],
       isLoading: true,
       error: false
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getTrials", function () {
+      var _this$state$userinfo = _this.state.userinfo,
+          zip = _this$state$userinfo.zip,
+          age = _this$state$userinfo.age,
+          gender = _this$state$userinfo.gender,
+          distance = _this$state$userinfo.distance;
+      var baseUrl = "http://35.234.148.3:8090/data/trials/uk/";
+      fetch("".concat(baseUrl).concat(zip, "/").concat(distance, "/").concat(gender, "/").concat(age, "/.json")).then(function (res) {
+        return res.json();
+      }).then(function (result) {
+        return _this.setState({
+          results: result,
+          isLoading: false
+        });
+      }).catch(function (error) {
+        return _this.setState({
+          isLoading: false,
+          results: [],
+          error: error
+        });
+      });
     });
 
     return _this;
@@ -29753,27 +29781,12 @@ function (_React$Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
-      fetch("http://35.234.148.3:8090/data/trials/uk/CM27jp/100/m/70/.json").then(function (res) {
-        return res.json();
-      }).then(function (result) {
-        return _this2.setState({
-          results: result,
-          isLoading: false
-        });
-      }).catch(function (error) {
-        return _this2.setState({
-          isLoading: false,
-          results: [],
-          error: error
-        });
-      });
+      this.getTrials();
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       var _this$state = this.state,
           isLoading = _this$state.isLoading,
@@ -29792,14 +29805,14 @@ function (_React$Component) {
           path: "/",
           component: function component() {
             return _react.default.createElement(_Home.default, {
-              appName: _this3.state.appName
+              appName: _this2.state.appName
             });
           }
         }), _react.default.createElement(_reactRouterDom.Route, {
           path: "/results",
           component: function component() {
             return _react.default.createElement(_Results.default, {
-              results: _this3.state.results
+              results: _this2.state.results
             });
           }
         }), _react.default.createElement(_reactRouterDom.Route, {
@@ -29818,7 +29831,7 @@ function (_React$Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./app.css":"Components/App/app.css","../Header/Header":"Components/Header/Header.js","../Home/Home":"Components/Home/Home.js","../Results/Results":"Components/Results/Results.js","../BasicInfo/BasicInfo":"Components/BasicInfo/BasicInfo.js","../SingleResult/SingleResult":"Components/SingleResult/SingleResult.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","../Header/Header":"Components/Header/Header.js","../Home/Home":"Components/Home/Home.js","../Results/Results":"Components/Results/Results.js","../BasicInfo/BasicInfo":"Components/BasicInfo/BasicInfo.js","../SingleResult/SingleResult":"Components/SingleResult/SingleResult.js","./app.css":"Components/App/app.css"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29857,7 +29870,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49470" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55366" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
