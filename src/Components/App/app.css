@@ -1,10 +1,18 @@
 /* global styles to go here */
+:root {
+  --light-blue: #81c3ff; /* background */
+  --med-blue: #0094ff; /* button normal */
+  --dark-blue: #027dd7; /* button extra dark */
+  --dark-grey: #4b4b4b; /* text */
+  --green: #3a9732; /* recruiting */
+}
+
 body {
   font-size: 1.25rem;
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.4;
-  color: black;
+  color: var(--dark-grey);
 }
 
 .main-section {
