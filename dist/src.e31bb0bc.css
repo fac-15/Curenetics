@@ -1,17 +1,44 @@
 /* header css */
 .header {
   background-color: white;
+  border-bottom: 2px solid var(--dark-blue);
+}
+
+.header-logo {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+h1.curenetics {
+  font-size: 1.6rem;
+  color: var(--dark-blue);
+  text-align: left;
+  display: inline;
+  margin-left: 0.4rem;
+  font-weight: 600;
+}
+.header .main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu-img {
+  font-size: 2rem;
+  float: right;
+  display: block;
+  fill: var(--dark-blue);
 }
 /* home page css */
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   color: white;
   text-align: center;
+  line-height: 3.5rem;
+  margin-bottom: 1rem;
 }
 .body-logo {
   display: block;
   margin: 0 auto;
-  max-width: 25%;
+  max-width: 4rem;
 }
 
 .main-section.home {

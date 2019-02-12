@@ -29489,7 +29489,11 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Header/Header.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Header/curenetics-small.svg":[function(require,module,exports) {
+module.exports = "/curenetics-small.c5052a7a.svg";
+},{}],"Components/Header/menu-ellipsis.svg":[function(require,module,exports) {
+module.exports = "/menu-ellipsis.0ef22270.svg";
+},{}],"Components/Header/Header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29507,27 +29511,37 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // this causes problems if Router is removed, though it is technically unused
 var Header = function Header() {
-  // const logo = require("./curenetics-blue-01.svg");
+  var logo = require("./curenetics-small.svg");
+
+  var menuImg = require("./menu-ellipsis.svg");
+
   return _react.default.createElement("header", {
     className: "header"
   }, _react.default.createElement("section", {
     className: "main-section"
-  }, _react.default.createElement("p", null, "Logo | Header | Menu"), _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("ul", {
-    className: "nav_menu"
-  }, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
-    to: "/"
-  }, "Home")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
-    to: "/results"
-  }, "Results")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
-    to: "/single-result"
-  }, "Single Result")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+  }, _react.default.createElement("div", null, _react.default.createElement("img", {
+    src: logo,
+    className: "header-logo"
+  }), _react.default.createElement("h1", {
+    className: "curenetics"
+  }, "Curenetics")), _react.default.createElement("button", {
+    className: "menu-button"
+  }, _react.default.createElement("svg", {
+    className: "menu-img",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 48 48"
+  }, _react.default.createElement("path", {
+    d: "M12 20c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm24 0c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm-12 0c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"
+  })), _react.default.createElement(_reactRouterDom.Link, {
     to: "/basic-info"
-  }, "Basic Info"))))));
+  }))));
 };
 
 var _default = Header;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./header.css":"Components/Header/header.css","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"Components/Home/home.css":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./header.css":"Components/Header/header.css","react-router-dom":"../node_modules/react-router-dom/es/index.js","./curenetics-small.svg":"Components/Header/curenetics-small.svg","./menu-ellipsis.svg":"Components/Header/menu-ellipsis.svg"}],"Components/Home/home.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -29870,7 +29884,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55366" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49236" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
