@@ -1,13 +1,15 @@
 /* home page css */
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   color: white;
   text-align: center;
+  line-height: 3.5rem;
+  margin-bottom: 1rem;
 }
 .body-logo {
   display: block;
   margin: 0 auto;
-  max-width: 25%;
+  max-width: 4rem;
 }
 
 .main-section.home {
