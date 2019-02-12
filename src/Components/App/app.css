@@ -5,6 +5,9 @@
   --dark-blue: #027dd7; /* button extra dark */
   --dark-grey: #4b4b4b; /* text */
   --green: #3a9732; /* recruiting */
+  --red: tomato;
+  --normal: 400;
+  --bold: 600;
 }
 * {
   box-sizing: border-box;
@@ -12,7 +15,7 @@
 body {
   font-size: 1.25rem;
   font-family: "Lato", sans-serif;
-  font-weight: 400;
+  font-weight: var(--normal);
   line-height: 1.4;
   color: var(--dark-grey);
   background-color: var(--light-blue);
@@ -21,7 +24,7 @@ body {
 form,
 button {
   font-family: "Lato", sans-serif;
-  font-weight: 400;
+  font-weight: var(--normal);
   border: 0;
   padding: 0;
   background-color: transparent;

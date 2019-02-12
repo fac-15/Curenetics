@@ -20,6 +20,7 @@ class App extends React.Component {
     results: [],
     isLoading: true,
     error: false,
+    noResultsMsg: "Sorry, there are no results",
   };
 
   componentDidMount() {
@@ -65,7 +66,7 @@ class App extends React.Component {
             <Header />
             <Switch>
               <Route exact path="/" component={() => <Home appName={this.state.appName} />} />
-              <Route path="/results" component={() => <Results results={this.state.results} />} />
+              <Route path="/results" component={() => <Results results={this.state} />} />
               <Route
                 path="/basic-info"
                 component={() => <BasicInfo onSubmit={this.handleSubmit} />}
