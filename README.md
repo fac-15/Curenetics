@@ -1,15 +1,33 @@
-# Minimal React Boilerplate
+# Curenetics
 
-This is a very minimal set-up to get started writing a React app. It bundles your code using [Parcel](https://parceljs.org) and has [Jest](https://jestjs.io/) configured to write tests with [react-testing-library](https://github.com/kentcdodds/react-testing-library).
+An app to put prostate cancer patients in touch with clinical trials that are suitable to them.
 
-## Getting started
-
-### Quick start
-
+## To get it running:
 1. Clone this repo
-1. `npm i`
-1. `npm run dev` to start the development server
+2. `npm i`
+3. `npm run dev` to start the development server
 
-### Slow start
+---
 
-If you want a bit more info about what exactly is needed for this project to work go to the [setup guide](./docs/setup.md) and follow the manual installation steps in a fresh repo of your own.
+### Linter stuff
+- ~~Need to match rules in `.eslintrc` to rules in `.prettierrc`.~~ Seems to work fine with eslintrc and format on save (below)
+- `.prettierrc` previously had this:
+```javascript
+// {
+//   "trailingComma": "es5",
+//   "tabWidth": 2,
+//   "semi": true,
+//   "doubleQuote": true,
+//   "printWidth": 100
+// }
+```
+- With the below configuration, files are formatted on save
+- [more eslint stuff here](https://eslint.org/docs/2.0.0/rules/)
+
+
+**VS Code:**
+- Go to settings, search for and select 'format on save'
+- Also may be able to "editor.formatOnSave": true in a settings file somewhere
+
+**Atom:**
+- Don't know yet.

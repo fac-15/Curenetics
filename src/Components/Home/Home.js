@@ -1,12 +1,12 @@
-import React from 'react';
-import './home.css';
+import React from "react";
+import "./home.css";
 
-const Home = () =>  {
-
+const Home = () => {
   return (
-<p>HOME</p>
-    );
-
-}
+    <section className="main-section">
+      <p>HOME</p>
+    </section>
+  );
+};
 
 export default Home;

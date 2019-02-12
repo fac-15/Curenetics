@@ -1,10 +1,14 @@
 import React from 'react';
 import './basic-info.css';
 
-const BasicInfo = () =>  {
+const BasicInfo = (props) =>  {
+  // console.log(props);
 
   return (
-<p>BasicInfo</p>
+    <section className="main-section">
+      <p>BasicInfo</p>
+    </section>
+
     );
 
 }

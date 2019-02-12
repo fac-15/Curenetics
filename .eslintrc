@@ -1,9 +1,24 @@
 {
-    "extends": [
-        "eslint:recommended",
-        "react-minimal"
-    ],
-    "rules": {
-        "no-console": "off"
+  "extends": ["plugin:prettier/recommended", "react-minimal"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "impliedStrict": true,
+      "classes": true
     }
+  },
+  "rules": {
+    "no-console": "off",
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "no-unused-vars": "off",
+    "no-var": 2,
+    "no-this-before-super": 2,
+    "no-class-assign": 2
+  },
+  "plugins": ["prettier"]
 }

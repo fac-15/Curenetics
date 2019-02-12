@@ -1,18 +1,22 @@
-button {
-  color: red;
+/* global styles to go here */
+body {
+  font-size: 1.25rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  color: black;
 }
-button {
-  color: red;
+
+.main-section {
+  max-width: 50rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
 }
-button {
-  color: red;
-}
-button {
-  color: red;
-}
-button {
-  color: red;
-}
+/* header css */
+/* home page css */
+/* results css to go here */
+/* basic info css to go here */
 button {
   color: red;
 }

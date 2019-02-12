@@ -4,7 +4,9 @@ import './single-result.css';
 const SingleResult = () =>  {
 
   return (
-<p>SingleResult</p>
+    <section className="main-section">
+      <p>SingleResult</p>
+    </section>
     );
 
 }
