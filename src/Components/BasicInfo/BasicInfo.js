@@ -44,46 +44,42 @@ class BasicInfo extends React.Component {
     return (
       <section className="main-section">
         <h1>Basic Information</h1>
-        <form action="/results">
-          <h4>Post Code *</h4>
+        <form action="/results" className="basic-form">
+          <h3 className="form-text">Post Code *</h3>
           <input onChange={this.handlePostCode} type="text" />
-          <h4>Age *</h4>
+          <h3 className="form-text">Age *</h3>
           <input type="number" onChange={this.handleAgeChange} />
-          <h4>Gender</h4>
-          <div className="radio">
-            <label>
+          <p className="form-text">Gender</p>
+          <div className="row">
+            <label className="radio-container">
               <input
                 type="radio"
                 value="f"
                 checked={this.state.gender === "f"}
                 onChange={this.handleOptionChange}
               />
-              female
+              <span className="checked">Female</span>
             </label>
-          </div>
-          <div className="radio">
-            <label>
+            <label className="radio-container">
               <input
                 type="radio"
                 value="m"
                 checked={this.state.gender === "m"}
                 onChange={this.handleOptionChange}
               />
-              male
+              <span className="checked">Male</span>
             </label>
-          </div>
-          <div className="radio">
-            <label>
+            <label className="radio-container">
               <input
                 type="radio"
                 value="o"
                 checked={this.state.gender === "o"}
                 onChange={this.handleOptionChange}
               />
-              other
+              <span className="checked">Other</span>
             </label>
           </div>
-          <div className="small-card">
+          <div className="consent-card">
             <p>Are you ok with us using your selection to filter results for you?</p>
             <div className="button-spacing">
               <button
