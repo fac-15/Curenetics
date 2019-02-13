@@ -1,4 +1,6 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
+
 import "./basic-info.css";
 
 class BasicInfo extends React.Component {
@@ -20,11 +22,15 @@ class BasicInfo extends React.Component {
     this.setState({ age: event.target.value });
   };
 
+  handleSubmit = () => {
+    this.props.history.push("/results");
+  };
+
   render() {
     return (
       <section className="main-section">
         <h2>BasicInfo</h2>
-        <form>
+        <form action="/results">
           <h4>Post Code</h4>
           <input onChange={this.handlePostCode} type="text" />
           <h4>Gender</h4>
@@ -63,15 +69,18 @@ class BasicInfo extends React.Component {
           </div>
           <h4>Age</h4>
           <input type="number" onChange={this.handleAgeChange} />
-        </form>
-        <section>
           <p>Are you ok with us using your selection to filter results for you?</p>
-          <button onClick={() => this.props.onSubmit(this.state)}>Yes</button>
+          <button type="button" onClick={() => this.props.onSubmit(this.state)}>
+            Yes
+          </button>
           <button>No</button>
-        </section>
+          <button type="submit" onClick={this.handleSubmit}>
+            View Results
+          </button>
+        </form>
       </section>
     );
   }
 }
 
-export default BasicInfo;
+export default withRouter(BasicInfo);
