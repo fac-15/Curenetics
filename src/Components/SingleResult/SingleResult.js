@@ -18,17 +18,17 @@ export class SingleResult extends React.Component {
   }
 }
 
-function single(Component){
-  render() {
-    const text = "Single Result here";
-    console.log(this.props);
-    return (
-      <div className="small-card">
-        <p>In a new Component!</p>
-        <p>{resultsList}</p>
-        <div>{this.props.item}</div>
-      </div>
-    );
-  }
-}
+// function single(Component){
+//   render() {
+//     const text = "Single Result here";
+//     console.log(this.props);
+//     return (
+//       <div className="small-card">
+//         <p>In a new Component!</p>
+//         <p>{resultsList}</p>
+//         <div>{this.props.item}</div>
+//       </div>
+//     );
+//   }
+// }
 export default SingleResult;
