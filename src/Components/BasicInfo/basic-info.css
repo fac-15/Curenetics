@@ -1,0 +1,101 @@
+/* basic info css to go here */
+/* medium */
+.basic-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 40rem;
+}
+
+.basic-form input {
+  max-width: 10rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--dark-grey);
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+.general-button {
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  color: white;
+  background-color: var(--med-blue);
+  transition: all ease-in-out 0.3s;
+  margin: 0 auto;
+}
+
+.consent-button {
+  padding: 0.2rem 1.2rem;
+}
+.submit-button {
+  color: white;
+  background-color: var(--med-blue);
+  font-size: 1.8rem;
+  max-width: 20rem;
+}
+
+.submit-button:hover {
+  color: var(--med-blue);
+  background-color: white;
+}
+
+.consent-card {
+  background-color: white;
+  margin: 2rem 0rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.25rem 0.35rem 0.5rem rgba(0, 0, 0, 0.25);
+  max-width: 40rem;
+  text-align: center;
+}
+
+.button-spacing {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-text {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.radio-container {
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-container input {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  opacity: 0;
+  left: 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+}
+
+.radio-container input:checked ~ .checked {
+  color: var(--med-blue);
+  background-color: white;
+}
+
+.checked {
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: var(--med-blue);
+  border-radius: 0.5rem;
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+}
