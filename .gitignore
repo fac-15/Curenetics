@@ -1,6 +1,6 @@
 .DS_Store
 .cache/
-.dist/
+dist/
 
 # Logs
 logs

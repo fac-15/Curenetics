@@ -68,7 +68,10 @@ class App extends React.Component {
                 path="/basic-info"
                 component={() => <BasicInfo onSubmit={this.handleSubmit} />}
               />
-              <Route path="/single-result" component={SingleResult} />
+              <Route
+                path="/single-result"
+                component={() => <SingleResult singleresult={this.state} />}
+              />
             </Switch>
           </>
         </Router>
