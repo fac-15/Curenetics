@@ -8,6 +8,7 @@ class BasicInfo extends React.Component {
     gender: "m",
     postCode: "",
     age: "",
+    consent: false,
   };
 
   handleOptionChange = event => {
@@ -22,17 +23,30 @@ class BasicInfo extends React.Component {
     this.setState({ age: event.target.value });
   };
 
-  handleSubmit = () => {
-    this.props.history.push("/results");
+  handleSubmit = e => {
+    e.preventDefault();
+    const { gender, postCode, age } = this.state;
+    if (!gender || !postCode || !age) {
+      alert("all fields must be filled");
+    } else {
+      if (!this.state.consent) {
+        this.props.history.push("/results");
+      } else {
+        this.props.onSubmit(this.state);
+        this.props.history.push("/results");
+      }
+    }
   };
 
   render() {
     return (
       <section className="main-section">
-        <h2>BasicInfo</h2>
+        <h1>Basic Information</h1>
         <form action="/results">
-          <h4>Post Code</h4>
+          <h4>Post Code *</h4>
           <input onChange={this.handlePostCode} type="text" />
+          <h4>Age *</h4>
+          <input type="number" onChange={this.handleAgeChange} />
           <h4>Gender</h4>
           <div className="radio">
             <label>
@@ -67,14 +81,29 @@ class BasicInfo extends React.Component {
               other
             </label>
           </div>
-          <h4>Age</h4>
-          <input type="number" onChange={this.handleAgeChange} />
-          <p>Are you ok with us using your selection to filter results for you?</p>
-          <button type="button" onClick={() => this.props.onSubmit(this.state)}>
-            Yes
-          </button>
-          <button>No</button>
-          <button type="submit" onClick={this.handleSubmit}>
+          <div className="small-card">
+            <p>Are you ok with us using your selection to filter results for you?</p>
+            <div className="button-spacing">
+              <button
+                className="general-button consent-button"
+                onClick={() => {
+                  this.setState({ consent: true });
+                }}
+              >
+                Yes
+              </button>
+              <button
+                className="general-button consent-button"
+                onClick={() => {
+                  this.setState({ consent: false });
+                }}
+              >
+                No
+              </button>
+            </div>
+          </div>
+
+          <button className="general-button submit-button" onClick={e => this.handleSubmit(e)}>
             View Results
           </button>
         </form>
