@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 
 const Home = props => {
   const logo = require("./curenetics-blue-01.svg");
-
-  console.log(props);
-
   const title = props.appName;
 
   return (
