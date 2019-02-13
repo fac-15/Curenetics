@@ -16,8 +16,6 @@ const Results = props => {
   const resultsList = props.results.results.results;
   const noResultsMsg = props.results.noResultsMsg;
 
-  console.log(resultsList);
-
   // prepare the results list
   const resultsArray = resultsList.map(item => (
     // make variables for things to keep them readable

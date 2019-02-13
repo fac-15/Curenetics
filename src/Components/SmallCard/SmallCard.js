@@ -1,5 +1,5 @@
 import React from "react";
-import "./small-card.css";
+// import "./small-card.css";
 // import { Link } from "react-router-dom";
 
 const SmallCard = props => {

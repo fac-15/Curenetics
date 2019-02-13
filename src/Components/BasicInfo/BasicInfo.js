@@ -25,15 +25,17 @@ class BasicInfo extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { gender, postCode, age } = this.state;
-    if (!gender || !postCode || !age) {
-      alert("all fields must be filled");
+    const { gender, postCode, age, consent } = this.state;
+    if (consent === false) {
+      this.props.history.push("/results");
     } else {
-      if (!this.state.consent) {
-        this.props.history.push("/results");
+      if (!gender || !postCode || !age || consent === null) {
+        alert("all fields must be filled");
       } else {
-        this.props.onSubmit(this.state);
-        this.props.history.push("/results");
+        if (this.state.consent === true) {
+          this.props.onSubmit(this.state);
+          this.props.history.push("/results");
+        }
       }
     }
   };
@@ -85,18 +87,16 @@ class BasicInfo extends React.Component {
             <p>Are you ok with us using your selection to filter results for you?</p>
             <div className="button-spacing">
               <button
+                type="button"
                 className="general-button consent-button"
-                onClick={() => {
-                  this.setState({ consent: true });
-                }}
+                onClick={() => this.setState({ consent: true })}
               >
                 Yes
               </button>
               <button
+                type="button"
                 className="general-button consent-button"
-                onClick={() => {
-                  this.setState({ consent: false });
-                }}
+                onClick={() => this.setState({ consent: false })}
               >
                 No
               </button>
