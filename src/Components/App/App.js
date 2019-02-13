@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import Header from "../Header/Header";
 import Home from "../Home/Home";
 import Results from "../Results/Results";
@@ -11,16 +10,14 @@ import "./app.css";
 
 class App extends React.Component {
   state = {
-    appName: "Curenetics",
     userInfo: {
-      postCode: "CM27jp",
-      age: "70",
-      gender: "m",
+      postCode: "",
+      age: "",
+      gender: "",
     },
     results: [],
     isLoading: true,
-    error: false,
-    noResultsMsg: "Sorry, there are no results",
+    error: null,
   };
 
   componentDidMount() {
@@ -31,7 +28,7 @@ class App extends React.Component {
     const { postCode, age, gender } = this.state.userInfo;
     const baseUrl = "http://35.234.148.3:8090/data/trials/uk/";
     const distance = "100";
-    fetch(`${baseUrl}${postCode}/${distance}/${gender}/${age}/.json`)
+    fetch(`${baseUrl}${postCode || "cm27jp"}/${distance}/${gender || "m"}/${age || "70"}/.json`)
       .then(res => res.json())
       .then(result =>
         this.setState({
@@ -49,14 +46,14 @@ class App extends React.Component {
   };
 
   handleSubmit = userInfo => {
-    this.setState({ userInfo });
-    this.getTrials();
+    this.setState({ userInfo }, () => {
+      this.getTrials();
+    });
   };
 
   render() {
-    const { isLoading, error, results, appName } = this.state;
+    const { isLoading, results } = this.state;
     if (isLoading) {
-      // console.log(this.state, this.props);
       return <h1> loading ... </h1>;
     }
     if (!isLoading && results) {
@@ -65,7 +62,7 @@ class App extends React.Component {
           <>
             <Header />
             <Switch>
-              <Route exact path="/" component={() => <Home appName={this.state.appName} />} />
+              <Route exact path="/" component={() => <Home />} />
               <Route path="/results" component={() => <Results results={this.state} />} />
               <Route
                 path="/basic-info"

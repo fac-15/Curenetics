@@ -2,7 +2,7 @@ import React from "react";
 import "./header.css";
 
 // this causes problems if Router is removed, though it is technically unused
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const logo = require("./curenetics-small.svg");
