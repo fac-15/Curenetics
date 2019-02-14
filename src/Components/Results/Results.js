@@ -15,6 +15,11 @@ const initalCap = str => str.charAt(0).toUpperCase() + str.slice(1);
 // slug for routing (from trial title)
 const urlSlug = str => str.split(" ").join("_");
 
+// get uk location
+const getUkLocation = locations => {
+  return locations.filter(location => location.Facility.Address.Country === "United Kingdom");
+};
+
 const Results = props => {
   // get results, error messages etc
   const resultsList = props.results.results.results;
@@ -23,11 +28,13 @@ const Results = props => {
   // prepare the results list
   const resultsArray = resultsList.map(item => (
     // make variables for things to keep them readable
+    // const ukLocations = getUkLocation(item.Locations);
+    // return (
 
     <li className="small-card" key={item.IDInfo.OrgStudyID}>
       <div className="card-inner">
         <div className="card-row">
-          {item.Locations[0].Status ? (
+          {getUkLocation(item.Locations)[0].Status ? (
             <>
               <div className="open">
                 <svg
@@ -89,7 +96,7 @@ const Results = props => {
             </svg>
           </div>
           <div>
-            <span className="start-date">Starting Date: {randomDate().toString()}</span>
+            <span className="small-heading">Starting Date: {randomDate().toString()}</span>
           </div>
         </div>
 
@@ -109,7 +116,10 @@ const Results = props => {
             </svg>
           </div>
 
-          <div>{item.Locations[0].Facility.Name}</div>
+          <div>
+            <span className="small-heading">{getUkLocation(item.Locations)[0].Facility.Name}</span>
+            {getUkLocation(item.Locations)[0].Facility.Address.Zip}
+          </div>
         </div>
 
         <div className="card-row">

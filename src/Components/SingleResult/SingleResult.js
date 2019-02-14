@@ -9,7 +9,21 @@ const SingleResult = props => {
   return (
     <section className="main-section">
       <h2>Single Result to go here</h2>
-      {/* {displayResults} */}
+      {/* add a # to link to id of the result the user came from in the previous results view */}
+      <Link to="/results" className="back-link">
+        <svg
+          aria-labelledby="back-button"
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 48 48"
+        >
+          <title id="back-button" lang="en">
+            Back to results
+          </title>
+          <path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z" />
+        </svg>
+      </Link>
     </section>
   );
 };

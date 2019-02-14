@@ -1,30 +1,28 @@
-button {
-  color: red;
-}
 /* results css to go here */
 .results-list {
   display: flex;
   flex-direction: column;
 }
-.small-card {
+.back-link {
+  fill: white;
+}
+
+/* css in results.css affects styles here */
+
+/* .small-card {
   background-color: white;
   margin-top: 1rem;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0.25rem 0.35rem 0.5rem rgba(0, 0, 0, 0.25);
-}
-.card-row {
-  display: flex;
-  align-items: center;
-  line-height: 1;
-}
+} */
 
 /* open closed states */
-.open {
+/* .open {
   color: var(--green);
   fill: var(--green);
 }
 .closed {
   color: var(--red);
   fill: var(--red);
-}
+} */
