@@ -9,6 +9,8 @@ const randomDate = () => {
   return randomDate.toLocaleDateString("en-UK");
 };
 
+const initalCap = str => str.charAt(0).toUpperCase() + str.slice(1);
+
 const Results = props => {
   // get results, error messages etc
   const resultsList = props.results.results.results;
@@ -61,7 +63,7 @@ const Results = props => {
       <div className="card-row">
         <div />
         <div>
-          <h3>{item.Keywords ? item.Keywords[0] : "Clinical Study"}</h3>
+          <h3>{item.Keywords ? initalCap(item.Keywords[0]) : "Clinical Study"}</h3>
         </div>
       </div>
       <div className="card-row">
