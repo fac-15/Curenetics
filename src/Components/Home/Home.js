@@ -10,6 +10,7 @@ const Home = props => {
   return (
     <section className="main-section home">
       <h1>Hello, would you like help to find a clinical trail?</h1>
+      <h2>Prostate Cancer Trials</h2>
 
       <button className="link-button medium-blue">
         <Link to="/basic-info">Find a Trial</Link>
