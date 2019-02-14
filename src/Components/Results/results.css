@@ -72,8 +72,17 @@
   background-color: var(--dark-blue);
   color: white;
   fill: white;
+  transition: all ease-in-out 0.3s;
 }
 .view-more svg {
   width: 2rem;
   height: 2rem;
+  transition: all ease-in-out 0.3s;
+}
+
+.view-more:hover {
+  background-color: var(--med-blue);
+}
+.view-more:hover svg {
+  transform: translateX(0.5rem);
 }
