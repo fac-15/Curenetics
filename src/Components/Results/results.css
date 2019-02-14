@@ -10,18 +10,42 @@
   border-radius: 0.5rem;
   box-shadow: 0.25rem 0.35rem 0.5rem rgba(0, 0, 0, 0.25);
 }
+.small-card h3 {
+  font-size: 1.8rem;
+  font-weight: var(--bold);
+}
+.small-card .start-date {
+  margin-right: 1rem;
+}
 .card-row {
   display: flex;
   align-items: center;
   line-height: 1;
+  padding-top: 0.5rem;
 }
 
-/* open closed states */
-.open {
-  color: var(--green);
+/* svgs */
+.card-row > div:first-child {
+  fill: var(--dark-grey);
+  width: 3rem;
+}
+
+.card-row > div:first-child svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* open state */
+.card-row > div:first-child.open {
   fill: var(--green);
 }
-.closed {
-  color: var(--red);
+.card-row > div:first-child.open ~ div {
+  color: var(--green);
+}
+/* closed state */
+.card-row > div:first-child.closed {
   fill: var(--red);
+}
+.card-row > div:first-child.closed ~ div {
+  color: var(--red);
 }

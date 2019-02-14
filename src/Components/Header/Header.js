@@ -49,9 +49,6 @@ class Header extends React.Component {
                 <Link to="/results">Results</Link>
               </li>
               <li>
-                <Link to="/single-result">Single Result</Link>
-              </li>
-              <li>
                 <Link to="/basic-info">Basic Info</Link>
               </li>
             </ul>

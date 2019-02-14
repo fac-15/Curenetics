@@ -50,10 +50,21 @@ class App extends React.Component {
     });
   };
 
+  // change this to display something if the api is still loading
   render() {
     const { isLoading, results } = this.state;
+
     if (isLoading) {
-      return <h1> loading ... </h1>;
+      return (
+        <Router>
+          <>
+            <Header />
+            <Switch>
+              <Route exact path="/" component={Home} />
+            </Switch>
+          </>
+        </Router>
+      );
     }
     if (!isLoading && results) {
       return (
@@ -61,11 +72,15 @@ class App extends React.Component {
           <>
             <Header />
             <Switch>
-              <Route exact path="/" component={() => <Home />} />
-              <Route path="/results" component={() => <Results results={this.state} />} />
+              <Route exact path="/" component={Home} />
+              <Route
+                path="/results"
+                render={props => <Results {...props} results={this.state} />}
+              />
+
               <Route
                 path="/basic-info"
-                component={() => <BasicInfo onSubmit={this.handleSubmit} />}
+                render={props => <BasicInfo {...props} onSubmit={this.handleSubmit} />}
               />
             </Switch>
           </>
