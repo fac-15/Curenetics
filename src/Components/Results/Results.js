@@ -10,7 +10,10 @@ const randomDate = () => {
   return randomDate.toLocaleDateString("en-UK");
 };
 
+// trial title
 const initalCap = str => str.charAt(0).toUpperCase() + str.slice(1);
+// slug for routing (from trial title)
+const urlSlug = str => str.split(" ").join("_");
 
 const Results = props => {
   // get results, error messages etc
@@ -178,7 +181,11 @@ const Results = props => {
           </div>
         </div>
       </div>
-      <Link className="view-more" to="/">
+      <Link
+        className="view-more"
+        to={item.Keywords ? `/trials/${urlSlug(initalCap(item.Keywords[0]))}` : "trial-name"}
+      >
+        {/* "/trials/:trial" */}
         Read More
         <svg
           aria-labelledby="more-link"

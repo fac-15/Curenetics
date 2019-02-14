@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import Home from "../Home/Home";
 import Results from "../Results/Results";
 import BasicInfo from "../BasicInfo/BasicInfo";
+import SingleResult from "../SingleResult/SingleResult";
 import About from "../About/About";
 
 import "./app.css";
@@ -82,6 +83,10 @@ class App extends React.Component {
               <Route
                 path="/basic-info"
                 render={props => <BasicInfo {...props} onSubmit={this.handleSubmit} />}
+              />
+              <Route
+                path="/trials/:trial"
+                component={props => <SingleResult {...props} data={this.state} />}
               />
               <Route path="/about" component={About} />
             </Switch>

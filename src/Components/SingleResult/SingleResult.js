@@ -1,8 +1,21 @@
 import React from "react";
-import "../Results/results.css";
+// import "../Results/results.css";
 import "./single-result.css";
-import "../Results/Results";
-import { Results } from "../Results/Results";
+
+import { Link } from "react-router-dom";
+
+const SingleResult = props => {
+  console.log(props);
+  return (
+    <section className="main-section">
+      <h2>Single Result to go here</h2>
+      {/* {displayResults} */}
+    </section>
+  );
+};
+
+// import "../Results/Results";
+// import { Results } from "../Results/Results";
 
 // export class SingleResult extends React.Component {
 //   render() {
