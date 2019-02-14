@@ -20,10 +20,10 @@ class Header extends React.Component {
     return (
       <header className="header">
         <section className="main-section">
-          <div className="lockup">
+          <Link className="lockup" to="/">
             <img src={logo} className="header-logo" />
             <h1 className="app-title">Curenetics</h1>
-          </div>
+          </Link>
 
           <div className="menu-container">
             <button
@@ -46,10 +46,13 @@ class Header extends React.Component {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/results">Results</Link>
+                <Link to="/basic-info">Your Search</Link>
               </li>
               <li>
-                <Link to="/basic-info">Basic Info</Link>
+                <Link to="/results">All Trials</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
               </li>
             </ul>
           </div>

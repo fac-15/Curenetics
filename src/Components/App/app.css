@@ -32,6 +32,11 @@ button {
   background-color: transparent;
 }
 
+button:focus,
+input:focus {
+  outline: none;
+}
+
 .main-section {
   max-width: 50rem;
   width: 100%;
