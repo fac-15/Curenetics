@@ -2,6 +2,15 @@ import React from "react";
 import "./results.css";
 // import SmallCard from "../SmallCard/SmallCard";
 
+const randomDate = () => {
+  const start = new Date(2016, 0, 1);
+  const end = new Date();
+  const randomDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  return randomDate.toLocaleDateString("en-UK");
+};
+
+const initalCap = str => str.charAt(0).toUpperCase() + str.slice(1);
+
 const Results = props => {
   // get results, error messages etc
   const resultsList = props.results.results.results;
@@ -54,7 +63,7 @@ const Results = props => {
       <div className="card-row">
         <div />
         <div>
-          <h3>Title of Trial</h3>
+          <h3>{item.Keywords ? initalCap(item.Keywords[0]) : "Clinical Study"}</h3>
         </div>
       </div>
       <div className="card-row">
@@ -73,7 +82,7 @@ const Results = props => {
           </svg>
         </div>
         <div>
-          <span className="start-date">Starting Date:</span> starting date
+          <span className="start-date">Starting Date: {randomDate().toString()}</span>
         </div>
       </div>
       <div className="card-row">
@@ -103,12 +112,12 @@ const Results = props => {
             viewBox="0 0 48 48"
           >
             <title id="phase" lang="en">
-              Trial Phase
+              Trial Phase:
             </title>
             <path d="M32.49 15.51C30.14 13.17 27.07 12 24 12v12l-8.49 8.49c4.69 4.69 12.28 4.69 16.97 0 4.69-4.69 4.69-12.29.01-16.98zM24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.96 20-20c0-11.05-8.95-20-20-20zm0 36c-8.84 0-16-7.16-16-16S15.16 8 24 8s16 7.16 16 16-7.16 16-16 16z" />
           </svg>
         </div>
-        <div>Trial Phase:</div>
+        <div>Trial Phase: {Math.floor(Math.random() * Math.floor(3) + 1)}</div>
       </div>
 
       <div className="card-row">
@@ -127,6 +136,10 @@ const Results = props => {
           </svg>
         </div>
         <div>Summary:</div>
+        <div>
+          This trial is looking at using aspirin to see if it can help stop cancer coming back after
+          treatment. This trial is open to people who have had an early stage cancer.
+        </div>
       </div>
       <div className="card-row">
         <div>
@@ -143,7 +156,12 @@ const Results = props => {
             <path d="M35.27 11.69C34.54 10.67 33.35 10 32 10l-22 .02c-2.21 0-4 1.77-4 3.98v20c0 2.21 1.79 3.98 4 3.98L32 38c1.35 0 2.54-.67 3.27-1.69L44 24l-8.73-12.31zM32 34H10V14h22l7.09 10L32 34z" />
           </svg>
         </div>
-        <div>Keywords:</div>
+        <ul>
+          Keywords:
+          {item.Keywords
+            ? item.Keywords.map(keyword => <li key={keyword}>{keyword}</li>)
+            : "Clinical Study"}
+        </ul>
       </div>
     </li>
   ));
