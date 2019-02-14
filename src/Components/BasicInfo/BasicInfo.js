@@ -9,6 +9,8 @@ class BasicInfo extends React.Component {
     postCode: "",
     age: "",
     consent: false,
+    ageValid: true,
+    postCodeValid: true,
   };
 
   handleOptionChange = event => {
@@ -26,12 +28,32 @@ class BasicInfo extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const { gender, postCode, age, consent } = this.state;
+
+    // regex to test valid postcode
+    const postCodeChecker = /([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))s?[0-9][A-Za-z]{2})/;
+    const postCodeMatch = postCode.match(postCodeChecker);
+    console.log(postCodeMatch);
+
+    // go to all results - no consent
     if (consent === false) {
       this.props.history.push("/results");
-    } else {
-      if (!gender || !postCode || !age || consent === null) {
-        alert("all fields must be filled");
-      } else {
+    }
+    // consent not given
+    else {
+      // postcode
+      if (!postCode || !postCodeMatch) {
+        // need to check if postcode is valid, if not it breaks the api call
+        this.setState({ postCodeValid: false });
+      }
+
+      // age
+      // - sometimes works - type inferral?
+      else if (!age || age > 150) {
+        this.setState({ ageValid: false });
+      }
+
+      // one or more fields filled in: get specific results
+      else {
         if (this.state.consent === true) {
           this.props.onSubmit(this.state);
           this.props.history.push("/results");
@@ -46,9 +68,18 @@ class BasicInfo extends React.Component {
         <h1>Basic Information</h1>
         <form action="/results" className="basic-form">
           <h3 className="form-text">Post Code *</h3>
-          <input onChange={this.handlePostCode} type="text" />
+          <input
+            onChange={this.handlePostCode}
+            type="text"
+            className={this.state.postCodeValid ? "text-input" : "text-input text-invalid"}
+          />
           <h3 className="form-text">Age *</h3>
-          <input type="number" onChange={this.handleAgeChange} />
+          <input
+            type="number"
+            onChange={this.handleAgeChange}
+            className={this.state.ageValid ? "text-input" : "text-input text-invalid"}
+          />
+
           <p className="form-text">Gender</p>
           <div className="row">
             <label className="radio-container">

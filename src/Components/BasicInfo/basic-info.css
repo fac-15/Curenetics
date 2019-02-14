@@ -8,7 +8,7 @@
   max-width: 40rem;
 }
 
-.basic-form input {
+.text-input {
   font-family: "Lato", sans-serif;
   font-size: 1.25rem;
   max-width: 20rem;
@@ -17,6 +17,11 @@
   border: 2px solid var(--dark-grey);
   background-color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.5rem;
+}
+
+.text-invalid {
+  border: 2px solid var(--red);
+  background-color: var(--light-red);
 }
 
 /* buttons */
