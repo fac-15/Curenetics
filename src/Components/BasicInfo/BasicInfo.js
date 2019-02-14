@@ -84,7 +84,6 @@ class BasicInfo extends React.Component {
             <div className="button-spacing">
               <button
                 type="button"
-                // className="general-button consent-button"
                 className={this.state.consent ? "consent-button toggled" : "consent-button"}
                 onClick={() => this.setState({ consent: true })}
               >
@@ -93,7 +92,6 @@ class BasicInfo extends React.Component {
               <button
                 type="button"
                 className={this.state.consent ? "consent-button" : "consent-button toggled"}
-                // className="general-button consent-button"
                 onClick={() => this.setState({ consent: false })}
               >
                 No

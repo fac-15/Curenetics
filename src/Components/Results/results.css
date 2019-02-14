@@ -4,11 +4,14 @@
   flex-direction: column;
 }
 .small-card {
+  position: relative;
   background-color: white;
   margin-top: 1rem;
-  padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0.25rem 0.35rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+.card-inner {
+  padding: 1rem 1rem 4rem;
 }
 .small-card h3 {
   font-size: 1.8rem;
@@ -22,6 +25,9 @@
   align-items: center;
   line-height: 1;
   padding-top: 0.5rem;
+}
+.card-row:first-child {
+  padding-top: 0;
 }
 
 /* svgs */
@@ -48,4 +54,26 @@
 }
 .card-row > div:first-child.closed ~ div {
   color: var(--red);
+}
+
+/* view more link */
+.view-more {
+  height: 3rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  text-decoration: none;
+  background-color: var(--dark-blue);
+  color: white;
+  fill: white;
+}
+.view-more svg {
+  width: 2rem;
+  height: 2rem;
 }
