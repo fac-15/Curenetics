@@ -62,39 +62,53 @@ const Results = props => {
             </>
           )}
         </div>
+
         <div className="card-row">
           <div />
           <div>
             <h3>{item.Keywords ? initalCap(item.Keywords[0]) : "Clinical Study"}</h3>
           </div>
-          <div className="card-row">
-            <div />
-            <div>
-              <h3>Title of Trial</h3>
-            </div>
+        </div>
+
+        <div className="card-row">
+          <div>
+            <svg
+              aria-labelledby="starting-date"
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+            >
+              <title id="starting-date" lang="en">
+                Starting Date
+              </title>
+              <path d="M18 22h-4v4h4v-4zm8 0h-4v4h4v-4zm8 0h-4v4h4v-4zm4-14h-2V4h-4v4H16V4h-4v4h-2c-2.22 0-3.98 1.8-3.98 4L6 40c0 2.2 1.78 4 4 4h28c2.2 0 4-1.8 4-4V12c0-2.2-1.8-4-4-4zm0 32H10V18h28v22z" />
+            </svg>
           </div>
           <div>
             <span className="start-date">Starting Date: {randomDate().toString()}</span>
           </div>
-          <div className="card-row">
-            <div>
-              <svg
-                aria-labelledby="location"
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 48 48"
-              >
-                <title id="location" lang="en">
-                  Location
-                </title>
-                <path d="M24 4c-7.73 0-14 6.27-14 14 0 10.5 14 26 14 26s14-15.5 14-26c0-7.73-6.27-14-14-14zm0 19c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
-              </svg>
-            </div>
-            <div>{item.Locations[0].Facility.Name}</div>
+        </div>
+
+        <div className="card-row">
+          <div>
+            <svg
+              aria-labelledby="location"
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+            >
+              <title id="location" lang="en">
+                Location
+              </title>
+              <path d="M24 4c-7.73 0-14 6.27-14 14 0 10.5 14 26 14 26s14-15.5 14-26c0-7.73-6.27-14-14-14zm0 19c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+            </svg>
           </div>
+
           <div>{item.Locations[0].Facility.Name}</div>
         </div>
+
         <div className="card-row">
           <div>
             <svg
@@ -129,9 +143,12 @@ const Results = props => {
             </svg>
           </div>
           <div>
-            Summary: Summary: This trial is looking at using aspirin to see if it can help stop
-            cancer coming back after treatment. This trial is open to people who have had an early
-            stage cancer.
+            <h4>Summary:</h4>
+            <p>
+              {" "}
+              This trial is looking at using aspirin to see if it can help stop cancer coming back
+              after treatment. This trial is open to people who have had an early stage cancer.
+            </p>
           </div>
         </div>
 
@@ -150,12 +167,15 @@ const Results = props => {
               <path d="M35.27 11.69C34.54 10.67 33.35 10 32 10l-22 .02c-2.21 0-4 1.77-4 3.98v20c0 2.21 1.79 3.98 4 3.98L32 38c1.35 0 2.54-.67 3.27-1.69L44 24l-8.73-12.31zM32 34H10V14h22l7.09 10L32 34z" />
             </svg>
           </div>
-          <ul>
-            Keywords:
-            {item.Keywords
-              ? item.Keywords.map(keyword => <li key={keyword}>{keyword}</li>)
-              : "Clinical Study"}
-          </ul>
+          <div>
+            <h4>Keywords:</h4>
+
+            <ul className="keyword-tags">
+              {item.Keywords
+                ? item.Keywords.map(keyword => <li key={keyword}>{keyword}</li>)
+                : "Clinical Study"}
+            </ul>
+          </div>
         </div>
       </div>
       <Link className="view-more" to="/">
