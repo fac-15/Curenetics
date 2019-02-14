@@ -96,7 +96,7 @@ const Results = props => {
             </svg>
           </div>
           <div>
-            <span className="small-heading">Starting Date: {randomDate().toString()}</span>
+            <span className="small-heading">Starting Date:</span> {randomDate().toString()}
           </div>
         </div>
 
@@ -117,7 +117,7 @@ const Results = props => {
           </div>
 
           <div>
-            <span className="small-heading">{getUkLocation(item.Locations)[0].Facility.Name}</span>
+            <span className="small-heading">{getUkLocation(item.Locations)[0].Facility.Name},</span>{" "}
             {getUkLocation(item.Locations)[0].Facility.Address.Zip}
           </div>
         </div>
