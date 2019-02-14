@@ -1,0 +1,48 @@
+/* global styles to go here */
+:root {
+  --light-blue: #81c3ff; /* background */
+  --med-blue: #0094ff; /* button normal */
+  --dark-blue: #027dd7; /* button extra dark */
+  --dark-grey: #4b4b4b; /* text */
+  --med-grey: #e5e5e5;
+  --light-grey: #dadada;
+  --green: #3a9732; /* recruiting */
+  --red: tomato;
+  --normal: 400;
+  --bold: 600;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.25rem;
+  font-family: "Lato", sans-serif;
+  font-weight: var(--normal);
+  line-height: 1.4;
+  color: var(--dark-grey);
+  background-color: var(--light-blue);
+}
+
+form,
+button {
+  font-family: "Lato", sans-serif;
+  font-weight: var(--normal);
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.main-section {
+  max-width: 50rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  line-height: 3.5rem;
+  margin-bottom: 1rem;
+}

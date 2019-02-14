@@ -1,0 +1,51 @@
+/* home page css */
+/* h1 {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  line-height: 3.5rem;
+  margin-bottom: 1rem;
+} */
+.body-logo {
+  display: block;
+  margin: 0 auto;
+  max-width: 4rem;
+}
+
+.main-section.home {
+  display: flex;
+  height: 80vh;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* button css - move to component */
+/* link buttons and toggle buttons */
+/* .link-button {
+    border: 0;
+    padding: 0;
+} */
+.link-button a {
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  color: white;
+  transition: all ease-in-out 0.3s;
+}
+/* medium */
+.link-button.medium-blue a {
+  background-color: var(--med-blue);
+}
+.link-button.medium-blue a:hover {
+  color: var(--med-blue);
+  background-color: white;
+}
+/* dark */
+.link-button.dark-blue a {
+  background-color: var(--dark-blue);
+}
+.link-button.dark-blue a:hover {
+  color: var(--dark-blue);
+  background-color: white;
+}

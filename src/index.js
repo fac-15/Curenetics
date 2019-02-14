@@ -1,4 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./Components/App/App";
 
-ReactDOM.render(<div>Hello Curenetics</div>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
