@@ -5,7 +5,7 @@ import "./single-result.css";
 import { Link } from "react-router-dom";
 
 const SingleResult = props => {
-  console.log(props);
+  // console.log(props);
   return (
     <section className="main-section">
       <h2>Single Result to go here</h2>
