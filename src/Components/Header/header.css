@@ -4,6 +4,15 @@
   border-bottom: 2px solid var(--dark-blue);
 }
 
+/* header container */
+.header .main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* - - - - - - -  */
+/* logo and text */
 .lockup {
   text-decoration: none;
   display: flex;
@@ -12,6 +21,10 @@
 .header-logo {
   width: 1.7rem;
   height: 1.7rem;
+}
+.header-logo .rect,
+.header-logo .ellipse {
+  fill: var(--dark-blue);
 }
 .app-title {
   font-size: 1.6rem;
@@ -22,26 +35,43 @@
   margin-bottom: 0;
 }
 
-/* header container */
-.header .main-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.header .main-section > div {
-  display: flex;
-  align-items: center;
-}
-
+/* - - - - - - -  */
 /* menu container */
 .menu-container {
-  position: relative;
-}
-/* menu button */
-.menu-button {
   z-index: 1;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  bottom: 0;
   right: 0;
+}
+@media only screen and (min-width: 50rem) {
+  .menu-container {
+    position: relative;
+    width: 0;
+  }
+  .menu-container.open {
+    position: fixed;
+    min-width: 15rem;
+  }
+}
+
+/* - - - - - - -  */
+/* menu button */
+/* - refer to main section (app.css) width when editing this, and the menu */
+.menu-button {
+  z-index: 2;
+  position: absolute;
+  right: 2rem;
+  top: 0.25rem;
+  transition: all ease-in-out 0.5s;
+}
+@media only screen and (min-width: 50rem) {
+  .menu-button {
+    position: relative;
+  }
+  .menu-container.open .menu-button {
+    right: -0.5rem;
+  }
 }
 .menu-button:hover,
 .menu-button.open {
@@ -60,30 +90,49 @@
   fill: var(--dark-blue);
 }
 
+/* - - - - - - -  */
 /* menu */
 .nav-menu {
   z-index: 1;
-  position: fixed;
-  top: 3.5rem;
-  bottom: 0;
-  right: 0;
   width: 15rem;
+  height: 100%;
   transform: translateX(15rem);
   transition: transform ease-in-out 0.5s;
-  padding: 1rem;
   background-color: white;
   border-left: 2px solid var(--dark-grey);
-  border-top: 2px solid var(--med-grey);
   text-align: center;
 }
 .menu-button.open ~ .nav-menu {
   transform: translateX(0rem);
 }
+@media only screen and (min-width: 50rem) {
+  .nav-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    visibility: hidden;
+  }
+  .menu-button.open ~ .nav-menu {
+    visibility: visible;
+  }
+}
 
+/* - - - - - - -  */
 /* menu list items */
 .menu-title {
-  font-size: 2rem;
+  height: calc(3.5rem + 2px);
+  line-height: calc(3.5rem + 2px);
+  border-bottom: 2px solid var(--med-grey);
+  font-size: 1.8rem;
   font-weight: var(--bold);
+  padding: 0;
+  padding-right: 1rem;
+}
+@media only screen and (min-width: 50rem) {
+  .menu-title {
+    padding: 0;
+    padding-left: 1rem;
+  }
 }
 .nav-menu li {
   margin-top: 2rem;
@@ -92,8 +141,11 @@
   margin-top: 0;
 }
 .nav-menu a {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--dark-grey);
+}
+.nav-menu a:hover {
+  border-bottom: 2px solid var(--dark-grey);
 }
