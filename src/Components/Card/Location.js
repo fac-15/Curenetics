@@ -1,8 +1,7 @@
 import React from "react";
 const Location = locations => {
-  //   console.log(locations.data.Facility);
   const { Name, Address } = locations.data.Facility;
-  const firstPostCode = Address.Zip;
+  const postCode = Address.Zip;
   return (
     <div className="card-row">
       <div>
@@ -21,7 +20,10 @@ const Location = locations => {
       </div>
 
       <div>
-        <span className="small-heading">{Name},</span> {firstPostCode}
+        <span className="small-heading">
+          {Name ? Name : null} {Name && postCode ? "," : null}
+        </span>{" "}
+        {postCode ? postCode : null}
       </div>
     </div>
   );

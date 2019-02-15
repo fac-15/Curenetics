@@ -41,7 +41,6 @@ class Results extends React.Component {
 
     // render things
     if (isLoading) {
-      console.log("is loading");
       return (
         <section className="main-section">
           <h2>Results are loading</h2>
@@ -51,11 +50,8 @@ class Results extends React.Component {
     if (!isLoading && results) {
       // make sure there are some results
 
-      console.log("there are results");
-
       // some results
       if (this.state.results.size > 0) {
-        console.log("has results");
         const resultsList = this.state.results.results;
 
         const resultsArray = resultsList.map((item, index) => (
@@ -79,7 +75,6 @@ class Results extends React.Component {
 
       // no results
       else {
-        console.log("no results");
         return (
           <section className="main-section">
             <h2>{noResultsMsg}</h2>
