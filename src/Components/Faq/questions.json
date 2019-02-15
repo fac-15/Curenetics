@@ -1,0 +1,30 @@
+[
+  {
+    "question": "What is a clinical trial?",
+    "answer": "When new drugs, interventions, surgical techniques, imaging or devices are developed, vigorous testing has to take place and sound evidence has to be made available to government regulatory bodies and institutions before they are to be approved for day to day use in the clinic."
+  },
+  {
+    "question": "What are eligibility criteria?",
+    "answer": "Eligibility criteria( inclusion and exclusion) are a set of features, signs, symptoms, diagnosis and sometimes test results which every participant has to have( or not have) for them to be able to enrol on a study. These criteria are needed so that trial organisers can demonstrate effect or usefulness in the specific condition being investigated. The criteria are also in place to protect participants against any known side effects or events that might affect them given their medical conditions."
+  },
+  {
+    "question": "Are clinical trials for me?",
+    "answer": "Anyone can enrol in clinical trials. You could volunteer to be part of a trial either if you have an ongoing medical condition or for instance, in remission following treatment for cancer. You can enrol in some trials even if you are in perfect health. Not all clinical trials involve drugs or need intervention. In order to improve on standard practice in Medicine, scientists and clinicians are actively thinking of new ways to solve old problems and new treatments for conditions that currently have no cure."
+  },
+  {
+    "question": "How can I find a trial I can participate in?",
+    "answer": "Current ways of finding trials out there are usually complicated and you likely have to be able to interpret a lot of medical jargons. By using our unique platform, we ask you very basic questions in plain language and we are able to sieve through a throve of medical jargon out there to get the right treatment for you. If you want to go a step further, with your permission, we can work with your doctors to suggest clinical trials which they think are most suitable for you, given they know you well more than anyone."
+  },
+  {
+    "question": "Are there any risks associated with Clinical Trial?",
+    "answer": "Every drug, surgery or intervention in Medicine have risks or side effects no matter how small. Risks usually vary depending on the phase of the trial, with phase 1 trials often carrying more risks than say phase 3 trials. The trial team consist of highly experienced professionals and they will work closely with you and monitor you while on the trial to make sure you are safe."
+  },
+  {
+    "question": "Who conducts the clinical trials?",
+    "answer": "Trials are usually conducted by expert doctors, nurses and other allied health professional. Trials are usually led by your consultants you see in clinic, or GPs and specialist nurses that look after you. The trial lead is called a chief or principal investigator. They are doctors and nurses and allied health professional who are often some of the leading experts in their fields."
+  },
+  {
+    "question": "What is the phase of my trial ?",
+    "answer": "Trials are commonly grouped from Phase 1 to 3. Sometimes there are phase 0 and 4 but not commonly. Phase 1 trials are where new drugs or intervention are tested for safety and to identify the level of dose that will be considered safe in humans. Once a safe dose has been reached or identified, some drugs will move to Phase 1b or 2a where the safe dose will be tested in more participants to further assess its safety. Most importantly, Phase 2 is where the efficacy of the drug is tested and to check whether it does what it is supposed to do or even better. Phase 3 is where the new drug is often compared head to head with the standard or the old drug. Lots more people ranging from hundreds to thousands of patients are needed to test the effect of the new drug. During this phase, further information about the drug is also gathered, such as any rare or unknown side effects and how it works in different populations."
+  }
+]
