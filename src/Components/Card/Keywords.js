@@ -1,7 +1,7 @@
 import React from "react";
 const Keywords = keywords => {
   return (
-    <>
+    <div className="card-row">
       <div>
         <svg
           aria-labelledby="keywords"
@@ -25,7 +25,7 @@ const Keywords = keywords => {
             : "Clinical Study"}
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 export default Keywords;

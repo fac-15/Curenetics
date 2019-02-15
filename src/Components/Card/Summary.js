@@ -2,7 +2,7 @@ import React from "react";
 const Summary = () => {
   // adds a default passage of text for the summary
   return (
-    <>
+    <div className="card-row">
       <div>
         <svg
           aria-labelledby="summary"
@@ -25,7 +25,7 @@ const Summary = () => {
           treatment. This trial is open to people who have had an early stage cancer.
         </p>
       </div>
-    </>
+    </div>
   );
 };
 export default Summary;

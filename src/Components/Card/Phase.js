@@ -2,7 +2,7 @@ import React from "react";
 const Phase = () => {
   // adds a random number for phase
   return (
-    <>
+    <div className="card-row">
       <div>
         <svg
           aria-labelledby="phase"
@@ -18,7 +18,7 @@ const Phase = () => {
         </svg>
       </div>
       <div>Trial Phase: {Math.floor(Math.random() * Math.floor(3) + 1)}</div>
-    </>
+    </div>
   );
 };
 export default Phase;

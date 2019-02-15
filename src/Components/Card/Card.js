@@ -45,18 +45,11 @@ const Card = props => {
             <h3>{trialTitle}</h3>
           </div>
         </div>
-        <div className="card-row">
-          <StartingDate />
-        </div>
-        <div className="card-row">
-          <Location data={ukLocation} />
-        </div>
-        <div className="card-row">
-          <Phase />
-        </div>
-        <div className="card-row">
-          <Keywords data={item.Keywords} />
-        </div>
+        <StartingDate />
+        <Location data={ukLocation} />
+        <Phase />
+        <Summary />
+        <Keywords data={item.Keywords} />
       </div>
       <Link className="view-more" to={pageUrl}>
         {/* "/trials/:trial" */}

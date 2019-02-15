@@ -10,7 +10,7 @@ const StartingDate = () => {
     return randomDate.toLocaleDateString("en-UK");
   };
   return (
-    <>
+    <div className="card-row">
       <div>
         <svg
           aria-labelledby="starting-date"
@@ -28,7 +28,7 @@ const StartingDate = () => {
       <div>
         <span className="small-heading">Starting Date:</span> {randomDate().toString()}
       </div>
-    </>
+    </div>
   );
 };
 export default StartingDate;

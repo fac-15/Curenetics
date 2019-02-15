@@ -4,7 +4,7 @@ const Location = locations => {
   const { Name, Address } = locations.data.Facility;
   const firstPostCode = Address.Zip;
   return (
-    <>
+    <div className="card-row">
       <div>
         <svg
           aria-labelledby="location"
@@ -23,7 +23,7 @@ const Location = locations => {
       <div>
         <span className="small-heading">{Name},</span> {firstPostCode}
       </div>
-    </>
+    </div>
   );
 };
 export default Location;
