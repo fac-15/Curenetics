@@ -7,36 +7,44 @@
   position: relative;
   background-color: white;
   margin-top: 1rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0.25rem 0.35rem 0.5rem rgba(0, 0, 0, 0.25);
 }
 .card-inner {
-  padding: 1rem 1rem 4rem;
+  padding-bottom: 4rem;
 }
+
+/* headings */
 .small-card h3 {
   font-size: 1.8rem;
   font-weight: var(--bold);
 }
 .small-card h4 {
   margin-bottom: 0.5rem;
+  font-weight: var(--bold);
 }
-.small-card .start-date {
+.small-card .small-heading {
   margin-right: 1rem;
+  font-weight: var(--bold);
 }
+
+/* rows */
 .card-row {
   display: flex;
   align-items: center;
+  /* align-items: flex-start; */
   line-height: 1;
-  padding-top: 0.5rem;
+  margin-top: 1rem;
 }
 .card-row:first-child {
-  padding-top: 0;
+  margin-top: 0;
 }
 
 /* svgs */
 .card-row > div:first-child {
   fill: var(--dark-grey);
-  width: 3rem;
+  min-width: 3rem;
 }
 
 .card-row > div:first-child svg {
@@ -62,13 +70,13 @@
 /* keywords */
 .keyword-tags {
   display: flex;
-  margin: 0.5rem 0;
-  padding: 0 0.5rem;
+  flex-wrap: wrap;
+  margin-left: -0.5rem;
 }
 .keyword-tags li {
-  text-align: center;
-  padding: 0.25rem 0.5rem;
+  padding: 0.35rem 0.5rem;
   margin: 0 0.5rem 0.5rem 0;
+  border-radius: 0.5rem;
   background-color: var(--med-grey);
   font-size: 1.1rem;
 }
