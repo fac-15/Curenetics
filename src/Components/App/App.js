@@ -16,84 +16,35 @@ class App extends React.Component {
       age: "",
       gender: "",
     },
-    results: [],
-    isLoading: true,
-    error: null,
-  };
-
-  componentDidMount() {
-    this.getTrials();
-  }
-
-  getTrials = () => {
-    const { postCode, age, gender } = this.state.userInfo;
-    const baseUrl = "http://35.234.148.3:8090/data/trials/uk/";
-    const distance = "100";
-    fetch(`${baseUrl}${postCode || "B152TH"}/${distance}/${gender || "m"}/${age || "70"}/.json`)
-      .then(res => res.json())
-      .then(result =>
-        this.setState({
-          results: result,
-          isLoading: false,
-        })
-      )
-      .catch(error =>
-        this.setState({
-          isLoading: false,
-          results: [],
-          error,
-        })
-      );
   };
 
   handleSubmit = userInfo => {
-    this.setState({ userInfo }, () => {
-      this.getTrials();
-    });
+    this.setState({ userInfo });
   };
 
   // change this to display something if the api is still loading
   render() {
-    const { isLoading, results } = this.state;
+    return (
+      <Router>
+        <>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route
+              path="/results"
+              render={props => <Results {...props} userInfo={this.state.userInfo} />}
+            />
 
-    if (isLoading) {
-      return (
-        <Router>
-          <>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={Home} />
-            </Switch>
-          </>
-        </Router>
-      );
-    }
-    if (!isLoading && results) {
-      return (
-        <Router>
-          <>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route
-                path="/results"
-                render={props => <Results {...props} results={this.state} />}
-              />
-
-              <Route
-                path="/basic-info"
-                render={props => <BasicInfo {...props} onSubmit={this.handleSubmit} />}
-              />
-              <Route
-                path="/trials/:trial"
-                component={props => <SingleResult {...props} data={this.state} />}
-              />
-              <Route path="/about" component={About} />
-            </Switch>
-          </>
-        </Router>
-      );
-    }
+            <Route
+              path="/basic-info"
+              render={props => <BasicInfo {...props} onSubmit={this.handleSubmit} />}
+            />
+            <Route path="/trials/:trial" component={SingleResult} />
+            <Route path="/about" component={About} />
+          </Switch>
+        </>
+      </Router>
+    );
   }
 }
 

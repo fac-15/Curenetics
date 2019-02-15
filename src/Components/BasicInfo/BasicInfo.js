@@ -32,7 +32,7 @@ class BasicInfo extends React.Component {
     // regex to test valid postcode
     const postCodeChecker = /([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))s?[0-9][A-Za-z]{2})/;
     const postCodeMatch = postCode.match(postCodeChecker);
-    console.log(postCodeMatch);
+    // console.log(postCodeMatch);
 
     // go to all results - no consent
     if (consent === false) {
