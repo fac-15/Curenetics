@@ -43,7 +43,16 @@
   top: 0;
   bottom: 0;
   right: 0;
-  min-width: 15rem;
+}
+@media only screen and (min-width: 50rem) {
+  .menu-container {
+    position: relative;
+    width: 0;
+  }
+  .menu-container.open {
+    position: absolute;
+    min-width: 15rem;
+  }
 }
 
 /* - - - - - - -  */
@@ -59,7 +68,7 @@
 @media only screen and (min-width: 50rem) {
   .menu-button {
     position: relative;
-    right: 0;
+    /* right: 0; */
   }
   .menu-container.open .menu-button {
     right: -0.5rem;
@@ -101,6 +110,11 @@
   .nav-menu {
     position: absolute;
     top: 0;
+    right: 0;
+    visibility: hidden;
+  }
+  .menu-button.open ~ .nav-menu {
+    visibility: visible;
   }
 }
 
@@ -113,12 +127,12 @@
   font-size: 1.8rem;
   font-weight: var(--bold);
   padding: 0;
-  padding-right: 2.5rem;
+  padding-right: 1rem;
 }
 @media only screen and (min-width: 50rem) {
   .menu-title {
     padding: 0;
-    padding-left: 2.5rem;
+    padding-left: 1rem;
   }
 }
 .nav-menu li {
