@@ -6,6 +6,7 @@ import Results from "../Results/Results";
 import BasicInfo from "../BasicInfo/BasicInfo";
 import SingleResult from "../SingleResult/SingleResult";
 import About from "../About/About";
+import Faq from "../Faq/Faq";
 
 import "./app.css";
 
@@ -41,6 +42,7 @@ class App extends React.Component {
             />
             <Route path="/trials/:trial" component={SingleResult} />
             <Route path="/about" component={About} />
+            <Route path="/faq" component={Faq} />
           </Switch>
         </>
       </Router>
