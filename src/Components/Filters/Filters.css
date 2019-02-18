@@ -6,19 +6,28 @@
 .select {
   border: 0;
   background-color: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
   color: white;
   font-family: "Lato", sans-serif;
   font-size: 1.8rem;
   border-radius: 1rem;
+  margin: 1rem 0;
   padding: 0.5rem 1.5rem;
   width: 100%;
   text-indent: 3rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  margin: 1rem 0;
+  cursor: pointer;
+}
+.select:focus {
+  border: 0.25rem solid white;
+}
+.select option {
+  cursor: pointer;
 }
 
+/* icons */
 .select_icon {
   fill: white;
   position: absolute;
