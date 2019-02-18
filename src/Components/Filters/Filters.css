@@ -1,0 +1,42 @@
+.filters {
+  max-width: 30rem;
+  margin: 1rem auto 2rem;
+}
+
+.select {
+  border: 0;
+  background-color: var(--dark-blue);
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-size: 1.8rem;
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
+  width: 100%;
+  text-indent: 3rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 1rem 0;
+}
+
+.select_icon {
+  fill: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.select_icon svg {
+  width: 3rem;
+  height: 2rem;
+}
+
+.select_container {
+  position: relative;
+}

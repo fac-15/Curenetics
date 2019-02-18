@@ -1,6 +1,7 @@
 import React from "react";
 import "./results.css";
 
+import Filters from "../Filters/Filters";
 import Card from "../Card/Card";
 
 class Results extends React.Component {
@@ -51,6 +52,7 @@ class Results extends React.Component {
       // make sure there are some results
 
       // some results
+
       if (this.state.results.size > 0) {
         const resultsList = this.state.results.results;
 
@@ -65,9 +67,11 @@ class Results extends React.Component {
           ) : (
             <p>{noResultsMsg}</p>
           );
+
         return (
           <section className="main-section">
             <h2>{this.state.results.size} results</h2>
+            <Filters />
             {displayResults}
           </section>
         );
