@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 
 /* - - - - - - -  */
@@ -68,11 +69,13 @@
   position: absolute;
   right: 2rem;
   top: 0.25rem;
+  transform: none;
   transition: all ease-in-out 0.5s;
 }
 @media only screen and (min-width: 50rem) {
   .menu-button {
     position: relative;
+    /* top: 0; */
   }
   .menu-container.open .menu-button {
     right: -0.5rem;
