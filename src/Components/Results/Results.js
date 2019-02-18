@@ -8,6 +8,9 @@ class Results extends React.Component {
   state = {
     results: [],
     isLoading: true,
+    filterResults: {
+      phase: "",
+    },
   };
 
   componentDidMount() {
@@ -33,6 +36,10 @@ class Results extends React.Component {
           error,
         })
       );
+  };
+
+  handleChange = filterResults => {
+    this.setState({ filterResults });
   };
 
   render() {
@@ -71,7 +78,7 @@ class Results extends React.Component {
         return (
           <section className="main-section">
             <h2>{this.state.results.size} results</h2>
-            <Filters />
+            <Filters onChange={this.handleChange} />
             {displayResults}
           </section>
         );
