@@ -9,6 +9,8 @@ import Phase from "./Phase";
 import Summary from "./Summary";
 import Keywords from "./Keywords";
 
+import "./card.css";
+
 // get the linking thing
 import { Link } from "react-router-dom";
 
@@ -40,8 +42,20 @@ const Card = props => {
 
   return (
     <>
-      <div className="card-inner" id={`single-card-${index}`}>
+      <div className="card-inner">
+        <button
+          id="delete"
+          onClick={() => {
+            props.delete(item.IDInfo.NCTID);
+          }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <title lang="en">Discard</title>
+            <path d="M38 12.83L35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z" />
+          </svg>
+        </button>
         <div className="card-row">{isRecruiting ? <Recruiting /> : <NotRecruiting />}</div>
+
         <div className="card-row">
           <div>
             <h3>{trialTitle}</h3>

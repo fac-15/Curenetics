@@ -69,7 +69,7 @@ class Header extends React.Component {
                 <Link to="/basic-info">Your Search</Link>
               </li>
               <li>
-                <Link to="/results">All Trials</Link>
+                <Link to="/trials">All Trials</Link>
               </li>
               <li>
                 <Link to="/faq">FAQ</Link>

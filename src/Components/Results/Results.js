@@ -27,7 +27,7 @@ class Results extends React.Component {
       .then(res => res.json())
       .then(result =>
         this.setState({
-          results: result,
+          results: result.results,
           isLoading: false,
         })
       )
@@ -49,12 +49,17 @@ class Results extends React.Component {
     }));
   };
 
+  handleDelete = id => {
+    const currentResults = this.state.results;
+    console.log(currentResults);
+    const newResults = currentResults.filter(item => item.IDInfo.NCTID !== id);
+    this.setState({ results: newResults });
+  };
+
   render() {
     const { isLoading, results } = this.state;
-
     const noResultsMsg = "No results, sorry";
 
-    // render things
     if (isLoading) {
       return (
         <section className="main-section">
@@ -77,21 +82,18 @@ class Results extends React.Component {
       );
     }
     if (!isLoading && results) {
+
       // make sure there are some results
-
-      // some results
-
       if (this.state.results.size > 0) {
-        let resultsList = this.state.results.results;
+        let resultsList = this.state.results;
         if (this.state.filterResults.recruiting === "true") {
           resultsList = resultsList.filter(result => result.Locations[0].Status === "Recruiting");
-          console.log("filter method", resultsList);
+          // console.log("filter method", resultsList);
         }
-        console.log(resultsList);
 
-        const resultsArray = resultsList.map((item, index) => (
-          <li className="small-card" key={index}>
-            <Card data={{ item, index }} />
+        const resultsArray = resultsList.map(item => (
+          <li className="small-card" key={item.IDInfo.NCTID}>
+            <Card data={{ item }} delete={this.handleDelete} />
           </li>
         ));
 
@@ -118,6 +120,7 @@ class Results extends React.Component {
                 <path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z" />
               </svg>
             </Link>
+
             <h2>{resultsArray.length} results</h2>
             <Filters onChange={this.handleChange} />
             {displayResults}
