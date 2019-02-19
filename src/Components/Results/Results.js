@@ -82,14 +82,21 @@ class Results extends React.Component {
       );
     }
     if (!isLoading && results) {
-      if (this.state.results.length > 0) {
-        const resultsList = this.state.results;
+
+      // make sure there are some results
+      if (this.state.results.size > 0) {
+        let resultsList = this.state.results;
+        if (this.state.filterResults.recruiting === "true") {
+          resultsList = resultsList.filter(result => result.Locations[0].Status === "Recruiting");
+          // console.log("filter method", resultsList);
+        }
 
         const resultsArray = resultsList.map(item => (
           <li className="small-card" key={item.IDInfo.NCTID}>
             <Card data={{ item }} delete={this.handleDelete} />
           </li>
         ));
+
         const displayResults =
           resultsArray.length > 0 ? (
             <ul className="results-list">{resultsArray}</ul>
@@ -113,7 +120,8 @@ class Results extends React.Component {
                 <path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z" />
               </svg>
             </Link>
-            <h2>{this.state.results.length} results</h2>
+
+            <h2>{resultsArray.length} results</h2>
             <Filters onChange={this.handleChange} />
             {displayResults}
           </section>

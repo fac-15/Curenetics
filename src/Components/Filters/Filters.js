@@ -68,8 +68,7 @@ class Filters extends React.Component {
         <Dropdown
           title={[
             { title: "Recruiting: Any", value: "" },
-            { title: "Recruiting: Open", value: "recruiting" },
-            { title: "Recruiting: Closed", value: "not recruiting" },
+            { title: "Recruiting: Open", value: true },
           ]}
           icon={tick}
           handleChange={this.props.onChange}
