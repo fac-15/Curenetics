@@ -9,7 +9,7 @@ class Results extends React.Component {
     results: [],
     isLoading: true,
     filterResults: {
-      phase: "",
+      recruiting: "",
     },
   };
 
@@ -39,7 +39,12 @@ class Results extends React.Component {
   };
 
   handleChange = filterResults => {
-    this.setState({ filterResults });
+    this.setState(prevState => ({
+      filterResults: {
+        ...prevState.filterResults,
+        recruiting: filterResults,
+      },
+    }));
   };
 
   render() {

@@ -12,10 +12,10 @@ const Dropdown = props => {
         </svg>
       </div>
       <select className="select" onChange={e => props.handleChange(event.target.value)}>
-        {titleArr.map((title, key) => {
+        {titleArr.map((item, key) => {
           return (
-            <option value={title.split(" ")[2]} key={key}>
-              {title}
+            <option value={item.value} key={key}>
+              {item.title}
             </option>
           );
         })}
