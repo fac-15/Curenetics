@@ -117,3 +117,11 @@
 .view-more:hover svg {
   transform: translateX(0.5rem);
 }
+
+/* back links */
+.back-link {
+  fill: white;
+  position: absolute;
+  top: 1rem;
+  /* left: 1rem; */
+}

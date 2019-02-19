@@ -34,7 +34,9 @@ const Card = props => {
   const trialTitle = item.Keywords ? initalCap(item.Keywords[0]) : "Clinical Study";
   const ukLocations = getUkLocation(item.Locations);
   // create page url from page title, if it exists
-  const pageUrl = item.Keywords ? `/trials/${urlSlug(initalCap(item.Keywords[0]))}` : "trial-name";
+  const pageUrl = item.Keywords
+    ? `/trials/${urlSlug(initalCap(item.Keywords[0]))}`
+    : "/trials/trial-name-to-be-added";
 
   return (
     <>

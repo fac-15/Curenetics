@@ -1,16 +1,11 @@
-/* results css to go here */
-.results-list {
-  display: flex;
-  flex-direction: column;
-}
-.back-link {
-  fill: white;
+/* single result css */
+.save-button {
+  cursor: pointer;
 }
 
-.missing-data {
-  background-color: var(--red);
-  color: white;
-  padding: 0.25rem 0.5rem;
-  margin: 200;
-  display: inline-block;
+.main-section.single-view {
+  padding-top: 4rem;
+}
+.main-section.single-view .small-card .card-inner {
+  padding-bottom: 0;
 }
