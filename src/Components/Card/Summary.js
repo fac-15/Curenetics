@@ -18,13 +18,13 @@ const Summary = () => {
         </svg>
       </div>
       <div>
-        <h4>Summary:</h4>
-        <p>
-          <span className="missing-data">Data Missing From API</span>
-          {/* {" "}
+        <span className="small-heading">Summary:</span>
+        <span className="missing-data" style={{ margin: "20" }}>
+          Data Missing From API
+        </span>
+        {/* {" "}
           This trial is looking at using aspirin to see if it can help stop cancer coming back after
           treatment. This trial is open to people who have had an early stage cancer. */}
-        </p>
       </div>
     </div>
   );
