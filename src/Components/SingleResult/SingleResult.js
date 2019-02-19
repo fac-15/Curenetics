@@ -9,11 +9,17 @@ import Keywords from "../Card/Keywords";
 import "./single-result.css";
 
 const saveTrial = () => {
-  const input = document.getElementById("trial");
-  html2canvas(input).then(canvas => {
+  const input = document.querySelector(".card-inner");
+  const options = {
+    allowTaint: true,
+    taintTest: false,
+    height: null,
+    width: null,
+  };
+  html2canvas(input, options).then(canvas => {
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF();
-    pdf.addImage(imgData, "JPEG", 0, 0);
+    pdf.addImage(imgData, "JPEG", 10, 10, 200, 100);
     pdf.save("trial.pdf");
   });
 };
@@ -23,8 +29,7 @@ const SingleResult = props => {
   const { item } = props.location.params;
   const index = props.location.params.item.IDInfo.OrgStudyID;
   return (
-    <section className="main-section" id="trial">
-      <h2>Single Result to go here</h2>
+    <section className="main-section">
       <div className="card-inner">
         {/* <div className="card-row">{isRecruiting ? <Recruiting /> : <NotRecruiting />}</div> */}
         <div className="card-row">
@@ -35,7 +40,7 @@ const SingleResult = props => {
         <StartingDate />
         <Phase />
         <Summary />
-        <Keywords data={item.Keywords} />
+        <Keywords data={item.Keywords} style={{ padding: "100" }} />
       </div>
       <button onClick={saveTrial}>
         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">

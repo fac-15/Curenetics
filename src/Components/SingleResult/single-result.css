@@ -7,22 +7,10 @@
   fill: white;
 }
 
-/* css in results.css affects styles here */
-
-/* .small-card {
-  background-color: white;
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0.25rem 0.35rem 0.5rem rgba(0, 0, 0, 0.25);
-} */
-
-/* open closed states */
-/* .open {
-  color: var(--green);
-  fill: var(--green);
+.missing-data {
+  background-color: var(--red);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  margin: 200;
+  display: inline-block;
 }
-.closed {
-  color: var(--red);
-  fill: var(--red);
-} */
