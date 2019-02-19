@@ -9,7 +9,7 @@ class Results extends React.Component {
     results: [],
     isLoading: true,
     filterResults: {
-      phase: "",
+      recruiting: "",
     },
   };
 
@@ -19,7 +19,7 @@ class Results extends React.Component {
 
   getTrials = () => {
     const { postCode, age, gender } = this.props.userInfo;
-    const baseUrl = "http://35.234.148.3:8090/data/trials/uk/";
+    const baseUrl = "https://curenetics-api.herokuapp.com/data/trials/uk/";
     const distance = "100";
     fetch(`${baseUrl}${postCode || "B152TH"}/${distance}/${gender || "m"}/${age || "70"}/.json`)
       .then(res => res.json())
@@ -39,7 +39,12 @@ class Results extends React.Component {
   };
 
   handleChange = filterResults => {
-    this.setState({ filterResults });
+    this.setState(prevState => ({
+      filterResults: {
+        ...prevState.filterResults,
+        recruiting: filterResults,
+      },
+    }));
   };
 
   render() {
