@@ -29,6 +29,12 @@
   font-weight: var(--bold);
 }
 
+.missing-data {
+  background-color: var(--red);
+  color: white;
+  padding: 0.25rem 0.5rem;
+}
+
 /* rows */
 .card-row {
   display: flex;

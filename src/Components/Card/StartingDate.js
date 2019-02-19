@@ -26,7 +26,9 @@ const StartingDate = () => {
         </svg>
       </div>
       <div>
-        <span className="small-heading">Starting Date:</span> {randomDate().toString()}
+        <span className="small-heading">Starting Date:</span>
+        <span className="missing-data">Data Missing From API</span>
+        {/* {randomDate().toString()} */}
       </div>
     </div>
   );

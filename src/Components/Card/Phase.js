@@ -18,8 +18,9 @@ const Phase = () => {
         </svg>
       </div>
       <div>
-        <span className="small-heading">Trial Phase:</span>{" "}
-        {Math.floor(Math.random() * Math.floor(3) + 1)}
+        <span className="small-heading">Trial Phase:</span>
+        <span className="missing-data">Data Missing From API</span>
+        {/* {Math.floor(Math.random() * Math.floor(3) + 1)} */}
       </div>
     </div>
   );
