@@ -11,21 +11,43 @@ import { Link } from "react-router-dom";
 import "./single-result.css";
 
 const SingleResult = props => {
-  console.log(props);
+  // need to make the result persist on page refresh, it currently doesn't
+  // results achieves this by re- running the api call with either default values, or user entered values
+  // - these are stored in app.js
+  // - currently can only pass in data from props - on a click event
 
-  const { item } = props.location.params;
-  const index = props.location.params.item.IDInfo.OrgStudyID;
+  // console.log(props.location);
 
-  const title = item.Keywords ? (
-    <h3>{item.Keywords[0]}</h3>
-  ) : (
-    <h3 className="missing-data">Data Missing From API</h3>
-  );
+  let title, item;
 
-  // missing-data
+  // 1. page refreshed / visited earlier:
+  // if there are no params, try to get item from local storage
+  if (!props.location.params) {
+    // console.log("no props", props);
+    // console.log(props.location.pathname);
+
+    item = JSON.parse(localStorage.getItem(`"${props.location.pathname}"`));
+    // console.log(a);
+  }
+
+  // 2. click from results
+  else {
+    item = props.location.params;
+
+    // if there are params, add to local storage
+    localStorage.setItem(JSON.stringify(props.location.pathname), JSON.stringify(item));
+    // console.log(window.localStorage);
+
+    title = item.Keywords ? (
+      <h3>{item.Keywords[0]}</h3>
+    ) : (
+      <h3 className="missing-data">Data Missing From API</h3>
+    );
+  }
+
   return (
     <section className="main-section single-view">
-      <Link className="back-link" to="/results">
+      <Link className="back-link" to="/trials">
         <svg
           aria-labelledby="back"
           xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +72,7 @@ const SingleResult = props => {
             <StartingDate />
             <Phase />
             <Summary />
-            <Keywords data={item.Keywords} style={{ padding: "100" }} />
+            <Keywords data={item.Keywords} />
           </div>
           <SaveButton />
         </div>
