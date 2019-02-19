@@ -35,7 +35,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route
               exact
-              path="/results"
+              path="/trials"
               render={props => <Results {...props} userInfo={this.state.userInfo} />}
             />
 
