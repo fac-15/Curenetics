@@ -1,4 +1,7 @@
 import React from "react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+
 // get all of the svg things that make code hard to reason about
 import Recruiting from "./Recruiting";
 import NotRecruiting from "./NotRecruiting";
@@ -35,12 +38,21 @@ const Card = props => {
   // create page url from page title, if it exists
   const pageUrl = item.Keywords ? `/trials/${urlSlug(initalCap(item.Keywords[0]))}` : "trial-name";
 
+  const saveTrial = () => {
+    const input = document.getElementById(index);
+    html2canvas(input).then(canvas => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, "JPEG", 0, 0);
+      pdf.save("trial.pdf");
+    });
+  };
+
   return (
     <>
-      <div className="card-inner">
+      <div className="card-inner" id={index}>
         <div className="card-row">{isRecruiting ? <Recruiting /> : <NotRecruiting />}</div>
         <div className="card-row">
-          <div />
           <div>
             <h3>{trialTitle}</h3>
           </div>
@@ -50,9 +62,13 @@ const Card = props => {
         <Phase />
         <Summary />
         <Keywords data={item.Keywords} />
+        <button onClick={saveTrial}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M38 18h-8V6H18v12h-8l14 14 14-14zM10 36v4h28v-4H10z" />
+          </svg>
+        </button>
       </div>
       <Link className="view-more" to={pageUrl}>
-        {/* "/trials/:trial" */}
         Read More
         <svg
           aria-labelledby="more-link"
@@ -72,32 +88,3 @@ const Card = props => {
 };
 
 export default Card;
-
-//     <div className="card-row">
-//   <div>
-//     <svg
-//       aria-labelledby="keywords"
-//       xmlns="http://www.w3.org/2000/svg"
-//       width="48"
-//       height="48"
-//       viewBox="0 0 48 48"
-//     >
-//       <title id="keywords" lang="en">
-//         Keywords
-//       </title>
-//       <path d="M35.27 11.69C34.54 10.67 33.35 10 32 10l-22 .02c-2.21 0-4 1.77-4 3.98v20c0 2.21 1.79 3.98 4 3.98L32 38c1.35 0 2.54-.67 3.27-1.69L44 24l-8.73-12.31zM32 34H10V14h22l7.09 10L32 34z" />
-//     </svg>
-//   </div>
-//   <div>
-//     <h4>Keywords:</h4>
-
-//     <ul className="keyword-tags">
-//       {item.Keywords
-//         ? item.Keywords.map(keyword => <li key={keyword}>{keyword}</li>)
-//         : "Clinical Study"}
-//     </ul>
-//   </div>
-// </div>
-//   </div>
-
-// </li>;
