@@ -33,7 +33,7 @@ class BasicInfo extends React.Component {
     const postCodeChecker = /([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))s?[0-9][A-Za-z]{2})/;
     // remove postcode spaces
     const postCodeMatch = postCode.replace(/\s/g, "").match(postCodeChecker);
-    //console.log("no spaces:", postCodeMatch);
+    //console.log("no spaces: ", postCodeMatch);
 
     // go to all results - no consent
     if (consent === false) {
