@@ -14,7 +14,7 @@ const Home = () => {
       </button>
 
       <button className="link-button dark-blue">
-        <Link to="/results">View all Trials</Link>
+        <Link to="/trials">View all Trials</Link>
       </button>
 
       <svg
