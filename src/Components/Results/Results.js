@@ -57,7 +57,7 @@ class Results extends React.Component {
   };
 
   render() {
-    const { isLoading, results } = this.state;
+    const { isLoading, results, filterResults } = this.state;
     const noResultsMsg = "No results, sorry";
 
     if (isLoading) {
@@ -82,13 +82,11 @@ class Results extends React.Component {
       );
     }
     if (!isLoading && results) {
-
       // make sure there are some results
-      if (this.state.results.size > 0) {
-        let resultsList = this.state.results;
-        if (this.state.filterResults.recruiting === "true") {
+      if (results.length > 0) {
+        let resultsList = results;
+        if (filterResults.recruiting === "true") {
           resultsList = resultsList.filter(result => result.Locations[0].Status === "Recruiting");
-          // console.log("filter method", resultsList);
         }
 
         const resultsArray = resultsList.map(item => (
