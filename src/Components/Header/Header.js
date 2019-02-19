@@ -4,9 +4,6 @@ import "./header.css";
 // this causes problems if Router is removed, though it is technically unused
 import { Link } from "react-router-dom";
 
-const logo = require("./curenetics-small.svg");
-const menuImg = require("./menu-ellipsis.svg");
-
 class Header extends React.Component {
   state = {
     open: false,

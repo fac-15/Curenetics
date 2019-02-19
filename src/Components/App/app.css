@@ -33,8 +33,10 @@ button {
   background-color: transparent;
 }
 
+/* reset default focus styles */
 button:focus,
-input:focus {
+input:focus,
+select:focus {
   outline: none;
 }
 
