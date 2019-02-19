@@ -4,6 +4,8 @@ import "./results.css";
 import Filters from "../Filters/Filters";
 import Card from "../Card/Card";
 
+import { Link } from "react-router-dom";
+
 class Results extends React.Component {
   state = {
     results: [],
@@ -56,6 +58,20 @@ class Results extends React.Component {
     if (isLoading) {
       return (
         <section className="main-section">
+          <Link className="back-link" to="/">
+            <svg
+              aria-labelledby="back"
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+            >
+              <title id="back" lang="en">
+                Back to Trials
+              </title>
+              <path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z" />
+            </svg>
+          </Link>
           <h2>Results are loading</h2>
         </section>
       );
@@ -82,6 +98,20 @@ class Results extends React.Component {
 
         return (
           <section className="main-section">
+            <Link className="back-link" to="/">
+              <svg
+                aria-labelledby="back"
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+              >
+                <title id="back" lang="en">
+                  Back to Trials
+                </title>
+                <path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z" />
+              </svg>
+            </Link>
             <h2>{this.state.results.size} results</h2>
             <Filters onChange={this.handleChange} />
             {displayResults}

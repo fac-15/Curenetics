@@ -1,7 +1,6 @@
 import React from "react";
 import "./header.css";
 
-// this causes problems if Router is removed, though it is technically unused
 import { Link } from "react-router-dom";
 
 class Header extends React.Component {

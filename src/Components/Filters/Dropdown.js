@@ -2,7 +2,6 @@ import React from "react";
 
 const Dropdown = props => {
   const titleArr = props.title;
-  console.log(props);
   return (
     <div className="select_container">
       <div className="select_icon">
