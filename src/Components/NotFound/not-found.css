@@ -1,0 +1,48 @@
+/* home page css */
+
+.body-logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 4rem;
+    fill: var(--med-blue);
+  }
+  
+  .main-section.not-found {
+    display: flex;
+    height: 80vh;
+    flex-direction: column;
+  }
+  
+  .not-found h2 {
+    font-size: 1.6rem;
+    color: white;
+    text-align: center;
+    line-height: 3.5rem;
+    margin: 5rem;
+  }
+  
+  .link-button-not-found a {
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.8rem;
+    color: white;
+    transition: all ease-in-out 0.3s;
+  }
+  /* medium */
+  .link-button-not-found.medium-blue-not-found a {
+    background-color: var(--med-blue);
+  }
+  .link-button-not-found.medium-blue-not-found a:hover {
+    color: var(--med-blue);
+    background-color: white;
+  }
+  /* dark */
+  .link-button-not-found.dark-blue-not-found a {
+    background-color: var(--dark-blue);
+  }
+  .link-button-not-found.dark-blue-not-found a:hover {
+    color: var(--dark-blue);
+    background-color: white;
+  }
+  
