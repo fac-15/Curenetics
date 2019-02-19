@@ -37,7 +37,7 @@ class BasicInfo extends React.Component {
 
     // go to all results - no consent
     if (consent === false) {
-      this.props.history.push("/results");
+      this.props.history.push("/trials");
     }
     // consent not given
     else {
@@ -57,7 +57,7 @@ class BasicInfo extends React.Component {
       else {
         if (this.state.consent === true) {
           this.props.onSubmit(this.state);
-          this.props.history.push("/results");
+          this.props.history.push("/trials");
         }
       }
     }
@@ -67,7 +67,7 @@ class BasicInfo extends React.Component {
     return (
       <section className="main-section">
         <h1>Basic Information</h1>
-        <form action="/results" className="basic-form">
+        <form action="/trials" className="basic-form">
           <h3 className="form-text">Post Code *</h3>
           <input
             onChange={this.handlePostCode}
