@@ -7,8 +7,10 @@ import BasicInfo from "../BasicInfo/BasicInfo";
 import SingleResult from "../SingleResult/SingleResult";
 import About from "../About/About";
 import Faq from "../Faq/Faq";
+import notFound from "../NotFound/NotFound";
 
 import "./app.css";
+import NotFound from "../NotFound/NotFound";
 
 class App extends React.Component {
   state = {
@@ -32,6 +34,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route
+              exact
               path="/results"
               render={props => <Results {...props} userInfo={this.state.userInfo} />}
             />
@@ -43,6 +46,7 @@ class App extends React.Component {
             <Route path="/trials/:trial" component={SingleResult} />
             <Route path="/about" component={About} />
             <Route path="/faq" component={Faq} />
+            <Route component={NotFound} />
           </Switch>
         </>
       </Router>

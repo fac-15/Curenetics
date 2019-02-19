@@ -1,12 +1,9 @@
 import React from "react";
-import "./home.css";
-// import "../Button/Button";
 import { Link } from "react-router-dom";
 
-const Home = props => {
-  // const logo = require("./curenetics-blue-01.svg");
-  // const title = props.appName;
+import "./home.css";
 
+const Home = () => {
   return (
     <section className="main-section home">
       <h1>Hello, would you like help to find a clinical trail?</h1>
