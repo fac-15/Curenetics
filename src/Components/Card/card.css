@@ -1,0 +1,8 @@
+#delete {
+    float: right;
+    margin-top: -1rem;
+  }
+
+#delete:hover {
+    background-color: #e2e2e2;
+}
