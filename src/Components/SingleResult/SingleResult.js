@@ -16,34 +16,26 @@ const SingleResult = props => {
   // - these are stored in app.js
   // - currently can only pass in data from props - on a click event
 
-  // console.log(props.location);
+  let item;
 
-  let title, item;
-
-  // 1. page refreshed / visited earlier:
+  // 1. page refreshed or visited previously:
   // if there are no params, try to get item from local storage
   if (!props.location.params) {
-    // console.log("no props", props);
-    // console.log(props.location.pathname);
-
     item = JSON.parse(localStorage.getItem(`"${props.location.pathname}"`));
-    // console.log(a);
   }
 
-  // 2. click from results
+  // 2. click directly from results
+  // if there are params, add to local storage
   else {
-    item = props.location.params;
-
-    // if there are params, add to local storage
+    item = props.location.params.item;
     localStorage.setItem(JSON.stringify(props.location.pathname), JSON.stringify(item));
-    // console.log(window.localStorage);
-
-    title = item.Keywords ? (
-      <h3>{item.Keywords[0]}</h3>
-    ) : (
-      <h3 className="missing-data">Data Missing From API</h3>
-    );
   }
+
+  const title = item.Keywords ? (
+    <h3>{item.Keywords[0]}</h3>
+  ) : (
+    <h3 className="missing-data">Data Missing From API</h3>
+  );
 
   return (
     <section className="main-section single-view">
