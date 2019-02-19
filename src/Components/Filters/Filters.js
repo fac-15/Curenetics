@@ -50,26 +50,29 @@ class Filters extends React.Component {
         <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
       </svg>
     );
+
+    const tick = (
+      <svg
+        aria-labelledby="recruiting"
+        xmlns="http://www.w3.org/2000/svg"
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+      >
+        <path d="M24 4C12.95 4 4 12.95 4 24c0 11.04 8.95 20 20 20 11.04 0 20-8.96 20-20 0-11.05-8.96-20-20-20zm-4 30L10 24l2.83-2.83L20 28.34l15.17-15.17L38 16 20 34z" />
+      </svg>
+    );
     return (
       <div className="filters">
         <h1> Search Filters: </h1>
         <Dropdown
-          title={["Trial Phase: Any", "Trial Phase: 1", "Trial Phase: 2", "Trial Phase: 3"]}
-          icon={phase}
-          handleChange={this.props.onChange}
-        />
-        <Dropdown
-          title={["Distance: Any", "Distance: 10m", "Distance: 50m", "Distance: 100m"]}
-          icon={pin}
-        />
-        <Dropdown
           title={[
-            "Duration: Any",
-            "Duration: < 1 month",
-            "Duration: 2-3 months",
-            "Duration: 3-6 months",
+            { title: "Recruiting: Any", value: "" },
+            { title: "Recruiting: Open", value: "recruiting" },
+            { title: "Recruiting: Closed", value: "not recruiting" },
           ]}
-          icon={timer}
+          icon={tick}
+          handleChange={this.props.onChange}
         />
       </div>
     );
