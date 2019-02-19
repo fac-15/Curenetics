@@ -1,6 +1,4 @@
 import React from "react";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 
 // get all of the svg things that make code hard to reason about
 import Recruiting from "./Recruiting";
@@ -34,23 +32,13 @@ const Card = props => {
   // variables we use to reason about the code better
   const isRecruiting = getUkLocation(item.Locations)[0].Status;
   const trialTitle = item.Keywords ? initalCap(item.Keywords[0]) : "Clinical Study";
-  const ukLocation = getUkLocation(item.Locations)[0];
+  const ukLocations = getUkLocation(item.Locations);
   // create page url from page title, if it exists
   const pageUrl = item.Keywords ? `/trials/${urlSlug(initalCap(item.Keywords[0]))}` : "trial-name";
 
-  const saveTrial = () => {
-    const input = document.getElementById(index);
-    html2canvas(input).then(canvas => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, "JPEG", 0, 0);
-      pdf.save("trial.pdf");
-    });
-  };
-
   return (
     <>
-      <div className="card-inner" id={index}>
+      <div className="card-inner" id={`single-card-${index}`}>
         <div className="card-row">{isRecruiting ? <Recruiting /> : <NotRecruiting />}</div>
         <div className="card-row">
           <div>
@@ -58,17 +46,12 @@ const Card = props => {
           </div>
         </div>
         <StartingDate />
-        <Location data={ukLocation} />
+        <Location data={ukLocations[0]} />
         <Phase />
         <Summary />
         <Keywords data={item.Keywords} />
-        <button onClick={saveTrial}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-            <path d="M38 18h-8V6H18v12h-8l14 14 14-14zM10 36v4h28v-4H10z" />
-          </svg>
-        </button>
       </div>
-      <Link className="view-more" to={pageUrl}>
+      <Link className="view-more" to={{ pathname: pageUrl, params: { item, ukLocations } }}>
         Read More
         <svg
           aria-labelledby="more-link"
