@@ -30,7 +30,7 @@ const Card = props => {
   };
 
   // variables we use to reason about the code better
-  const isRecruiting = getUkLocation(item.Locations)[0].Status;
+  const isRecruiting = getUkLocation(item.Locations)[0].Status === "Recruiting" ? true : false;
   const trialTitle = item.Keywords ? initalCap(item.Keywords[0]) : "Clinical Study";
   const ukLocations = getUkLocation(item.Locations);
   // create page url from page title, if it exists
