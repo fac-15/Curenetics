@@ -68,7 +68,7 @@ class BasicInfo extends React.Component {
       <section className="main-section">
         <h1>Basic Information</h1>
         <form action="/trials" className="basic-form">
-          <h3 className="form-text">Post Code *</h3>
+          <h3 className="form-text">Postcode *</h3>
           <input
             onChange={this.handlePostCode}
             type="text"
