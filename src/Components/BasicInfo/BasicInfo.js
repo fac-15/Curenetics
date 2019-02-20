@@ -118,7 +118,7 @@ class BasicInfo extends React.Component {
             </label>
           </div>
           <div className="consent-card">
-            <p>Are you ok with us using your selection to filter results for you?</p>
+            <p>Are you OK with us using your selection to filter your results?</p>
             <div className="button-spacing">
               <button
                 type="button"
