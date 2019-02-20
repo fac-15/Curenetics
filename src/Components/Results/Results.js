@@ -51,7 +51,7 @@ class Results extends React.Component {
 
   handleDelete = id => {
     const currentResults = this.state.results;
-    console.log(currentResults);
+    // console.log(currentResults);
     const newResults = currentResults.filter(item => item.IDInfo.NCTID !== id);
     this.setState({ results: newResults });
   };
@@ -72,12 +72,12 @@ class Results extends React.Component {
               viewBox="0 0 48 48"
             >
               <title id="back" lang="en">
-                Back to Trials
+                Back to Home
               </title>
               <path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z" />
             </svg>
           </Link>
-          <h2>Results are loading</h2>
+          <h2 className="results-count">Results are loading</h2>
         </section>
       );
     }
@@ -91,7 +91,7 @@ class Results extends React.Component {
 
         const resultsArray = resultsList.map(item => (
           <li className="small-card" key={item.IDInfo.NCTID}>
-            <Card data={{ item }} delete={this.handleDelete} />
+            <Card data={{ item }} delete={this.handleDelete} userInfo={this.props.userInfo} />
           </li>
         ));
 
@@ -119,7 +119,7 @@ class Results extends React.Component {
               </svg>
             </Link>
 
-            <h2>{resultsArray.length} results</h2>
+            <h2 className="results-count">{resultsArray.length} results</h2>
             <Filters onChange={this.handleChange} />
             {displayResults}
           </section>
@@ -130,7 +130,7 @@ class Results extends React.Component {
       else {
         return (
           <section className="main-section">
-            <h2>{noResultsMsg}</h2>
+            <h2 className="results-count">{noResultsMsg}</h2>
           </section>
         );
       }

@@ -21,9 +21,10 @@ const Location = locations => {
 
       <div>
         <span className="small-heading">
-          {Name ? Name : null} {Name && postCode ? "," : null}
+          {Name ? Name : <span className="missing-data">Address Missing From API</span>}{" "}
+          {Name && postCode ? "," : null}
         </span>{" "}
-        {postCode ? postCode : null}
+        {postCode ? postCode : <span className="missing-data">Postcode Missing From API</span>}
       </div>
     </div>
   );

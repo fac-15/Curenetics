@@ -12,6 +12,9 @@ import Keywords from "./Keywords";
 // get the linking thing
 import { Link } from "react-router-dom";
 
+// google map stuff
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+
 // trial title
 const initalCap = str => str.charAt(0).toUpperCase() + str.slice(1);
 // slug for routing (from trial title)
@@ -38,6 +41,23 @@ const Card = props => {
     ? `/trials/${urlSlug(initalCap(item.Keywords[0]))}`
     : "/trials/trial-name-to-be-added";
 
+  // - - - - - - -
+  // check if the user has entered a postcode (from App.js state)
+  const postcodeEntered = props.userInfo.postCode.length > 0;
+  // postcode (for the first trial in the list)
+  const hasPostcode = !!ukLocations[0].Facility.Address.Zip;
+
+  // if user entered a postcode, and the trial has a postcode...
+  // - use distance matrix API (or a free version of this) to work out the distance apart
+  if (postcodeEntered && hasPostcode) {
+    // show how far away trial is from user entered address
+    const userPostcode = props.userInfo.postCode;
+    const trialPostcode = ukLocations[0].Facility.Address.Zip;
+    console.log(userPostcode, trialPostcode);
+  }
+
+  // - - - - - - -
+
   return (
     <>
       <div className="card-inner">
@@ -63,6 +83,7 @@ const Card = props => {
         <div className="card-row">{isRecruiting ? <Recruiting /> : <NotRecruiting />}</div>
 
         <div className="card-row">
+          <div />
           <div>
             <h3>{trialTitle}</h3>
           </div>
