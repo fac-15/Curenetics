@@ -20,6 +20,7 @@
     }
   },
   "dependencies": {
+    "google-maps-react": "^2.0.2",
     "html2canvas": "^1.0.0-alpha.12",
     "jspdf": "^1.5.3",
     "react": "^16.8.2",
