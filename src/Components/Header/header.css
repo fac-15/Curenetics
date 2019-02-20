@@ -153,7 +153,16 @@
   text-decoration: none;
   font-size: 1.8rem;
   color: var(--dark-grey);
+  line-height: 3rem;
 }
 .nav-menu a:hover {
-  border-bottom: 2px solid var(--dark-grey);
+  /* border-bottom: 2px solid var(--dark-grey); */
+  font-weight: var(--bold);
+  background: var(--light-blue);
+  border-radius: 0.5rem;
+}
+
+a:active {
+  background: var(--light-blue);
+  border-radius: 0.5rem;
 }
