@@ -68,14 +68,20 @@ class BasicInfo extends React.Component {
       <section className="main-section">
         <h1>Basic Information</h1>
         <form action="/trials" className="basic-form">
-          <h3 className="form-text">Postcode *</h3>
+          <label htmlFor="postcode" className="form-text">
+            Full UK Post Code *
+          </label>
           <input
+            id="postcode"
             onChange={this.handlePostCode}
             type="text"
             className={this.state.postCodeValid ? "text-input" : "text-input text-invalid"}
           />
-          <h3 className="form-text">Age *</h3>
+          <label htmlFor="age" className="form-text">
+            Age *
+          </label>
           <input
+            id="age"
             type="number"
             onChange={this.handleAgeChange}
             className={this.state.ageValid ? "text-input" : "text-input text-invalid"}
