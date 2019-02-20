@@ -89,9 +89,13 @@ class Results extends React.Component {
           resultsList = resultsList.filter(result => result.Locations[0].Status === "Recruiting");
         }
 
-        const resultsArray = resultsList.map(item => (
+        const resultsArray = resultsList.map((item, index) => (
           <li className="small-card" key={item.IDInfo.NCTID}>
-            <Card data={{ item }} delete={this.handleDelete} userInfo={this.props.userInfo} />
+            <Card
+              data={{ item, index }}
+              delete={this.handleDelete}
+              userInfo={this.props.userInfo}
+            />
           </li>
         ));
 
