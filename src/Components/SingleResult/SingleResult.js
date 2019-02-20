@@ -3,6 +3,7 @@ import React from "react";
 import StartingDate from "../Card/StartingDate";
 import Phase from "../Card/Phase";
 import Summary from "../Card/Summary";
+import Expenses from "../Card/Expenses";
 import Keywords from "../Card/Keywords";
 import SaveButton from "../Card/SaveButton";
 
@@ -63,6 +64,7 @@ const SingleResult = props => {
             </div>
             <StartingDate />
             <Phase />
+            <Expenses />
             <Summary />
             <Keywords data={item.Keywords} />
           </div>
