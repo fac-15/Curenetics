@@ -123,5 +123,21 @@
   fill: white;
   position: absolute;
   top: 1rem;
-  /* left: 1rem; */
+  transition: all ease-in-out 0.3s;
+}
+.back-link:hover {
+  transform: translateX(-0.5rem);
+}
+
+.delete-button {
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #e2e2e2;
 }
