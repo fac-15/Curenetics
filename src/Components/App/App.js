@@ -46,7 +46,7 @@ class App extends React.Component {
             <Route path="/trials/:trial" component={SingleResult} />
             <Route path="/about" component={About} />
             <Route path="/faq" component={Faq} />
-            <Route component={NotFound} />
+            <Route path="*" component={NotFound} />
           </Switch>
         </>
       </Router>
