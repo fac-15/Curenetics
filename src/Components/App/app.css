@@ -1,13 +1,14 @@
 /* global styles to go here */
 :root {
-  --light-blue: #81c3ff; /* background */
+  --light-blue: #a9d6ff; /* background #81c3ff */
   --med-blue: #0094ff; /* button normal */
   --dark-blue: #027dd7; /* button extra dark */
+  --darker-blue: #015899; /* blue text on blue background */
   --dark-grey: #4b4b4b; /* text */
   --med-grey: #e5e5e5;
   --light-grey: #dadada;
-  --green: #3a9732; /* recruiting */
-  --red: tomato;
+  --green: #277021; /* recruiting #3a9732 */
+  --red: #b21b00; /* not recruiting tomato */
   --light-red: #ffc4ba;
   --normal: 400;
   --bold: 600;
@@ -55,8 +56,17 @@ select:focus {
 
 h1 {
   font-size: 2rem;
-  color: white;
+  font-weight: var(--bold);
+  color: var(--darker-blue);
   text-align: center;
   line-height: 3.5rem;
   margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: var(--bold);
+  color: var(--darker-blue);
+  text-align: center;
+  line-height: 3.5rem;
 }
