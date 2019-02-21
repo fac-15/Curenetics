@@ -32,7 +32,7 @@ What the app still needs:
 - Some data required by the app are currently not included in the API which serves as a data source for the app ( list of these below).
 ---
 
-**Additiona to the API required for next sprint**
+**Additions to the API required for next sprint**
 - Trial title
 - Starting date
 - Address and postcode missing
