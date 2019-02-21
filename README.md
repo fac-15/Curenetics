@@ -21,6 +21,7 @@ The Curanetics app features:
 - A button which allows the patient to download a pdf with the details of the trial on it for ease of sharing with their doctor. 
 - A page of frequently asked questions to avoid confusion with any technical terms. 
 
+
 What the app still needs: 
 - Some data required by the app are currently not included in the API which serves as a data source for the app ( list of these below).
 ---
