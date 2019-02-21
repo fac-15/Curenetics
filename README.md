@@ -1,3 +1,5 @@
+
+
 # Curenetics Documentation
 
 Find this app online at https://curenetics.netlify.com/ or run it locally: 
@@ -6,6 +8,17 @@ Find this app online at https://curenetics.netlify.com/ or run it locally:
 3. `npm run dev` to start the development server
 
 ---
+
+## Tech Stack: 
+
+We implemented the following technologies to accomplish this:
+- ReactJS 
+- NodeJS 
+- Jest
+
+---
+
+## About Curenetics
 
 The Curenetics app aims to connect cancer patients to clinical trials that are appropriate for them. It should be accessible for those who use it and give people a sense of control over their situation. Additionally, it will help clinical trial sponsors meet recruitment targets and hence save costs and reduce time to trial completion.
 
