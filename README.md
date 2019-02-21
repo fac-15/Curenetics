@@ -64,7 +64,7 @@ What the app still needs:
 We built our original prototype in Figma. Drawing inspiration from the design of other medical apps and services. It showcases the fully fledged idea of what Curenetics will be including stretch goals such as an interactive quiz to get more information from the patient.
 
 
-![spalsh page](https://user-images.githubusercontent.com/39189687/52851954-44336480-310f-11e9-95c7-27732cb4ccc4.png) 
+![spalsh page](https://www.dropbox.com/s/1d2mhd1fd9wi2o9/figma1.png?raw=1) 
 ![basic information form](https://user-images.githubusercontent.com/39189687/52851837-06ced700-310f-11e9-9685-85e42d444b1d.png) 
 ![quiz page](https://user-images.githubusercontent.com/39189687/52851834-06ced700-310f-11e9-88a1-9458cdf9d298.png) 
 ![results page](https://user-images.githubusercontent.com/39189687/52851839-06ced700-310f-11e9-9f1f-060164c14898.png) 
