@@ -10,6 +10,12 @@ Find this app online at https://curenetics.netlify.com/ or run it locally:
 The Curenetics app aims to connect cancer patients to clinical trials that are appropriate for them. It should be accessible for those who use it and give people a sense of control over their situation. Additionally, it will help clinical trial sponsors meet recruitment targets and hence save costs and reduce time to trial completion.
 
 Dr Sola Adeleke (MRCP, MBA Oncology Research), the founder of Curenetics, is an oncologist with extensive experience in clinical trials, a clinical research fellow at UCL and is actively involved in cancer research. Sola is devoted to making clinical trials more accessible to patients and clinicians as well as matching the right patients to the right trials within the NHS.
+
+---
+
+### User journey: 
+
+Upon opening the app I as a patient am reassured that it is secure and reliable. I put in a minimum amount of information and I do not feel intimidated or frustrated by medical jargon. Finally, I am taken to a list of results which are sorted according to how relevant they are to me. When I select one trial from the list I can get more information from it.
   
 ---
        
@@ -26,7 +32,7 @@ What the app still needs:
 - Some data required by the app are currently not included in the API which serves as a data source for the app ( list of these below).
 ---
 
-**API fields required**
+**Additiona to the API required for next sprint**
 - Trial title
 - Starting date
 - Address and postcode missing
@@ -37,12 +43,6 @@ What the app still needs:
 - if travel expenses will be paid
 - Trial contact person
 - Trial contact person's email and phone number
-
----
-
-### User journey: 
-
-Upon opening the app I as a patient am reassured that it is secure and reliable. I put in a minimum amount of information and I do not feel intimidated or frustrated by medical jargon. Finally, I am taken to a list of results which are sorted according to how relevant they are to me. When I select one trial from the list I can get more information from it.
 
 --- 
 
