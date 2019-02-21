@@ -51,7 +51,11 @@ Upon opening the app I as a patient am reassured that it is secure and reliable.
 We built our original prototype in Figma. Drawing inspiration from the design of other medical apps and services. It showcases the fully fledged idea of what Curenetics will be including stretch goals such as an interactive quiz to get more information from the patient.
 
 
-![screen shot 2019-02-15 at 10 44 41](https://user-images.githubusercontent.com/39189687/52851954-44336480-310f-11e9-95c7-27732cb4ccc4.png =150x) ![screen shot 2019-02-15 at 10 45 12](https://user-images.githubusercontent.com/39189687/52851837-06ced700-310f-11e9-9685-85e42d444b1d.png =150x) ![screen shot 2019-02-15 at 10 45 20](https://user-images.githubusercontent.com/39189687/52851834-06ced700-310f-11e9-88a1-9458cdf9d298.png =150x) ![screen shot 2019-02-15 at 10 44 51](https://user-images.githubusercontent.com/39189687/52851839-06ced700-310f-11e9-9f1f-060164c14898.png =150x) ![screen shot 2019-02-15 at 10 45 01](https://user-images.githubusercontent.com/39189687/52851838-06ced700-310f-11e9-8d5b-01a3f67f612b.png =150x)
+![spalsh page](https://user-images.githubusercontent.com/39189687/52851954-44336480-310f-11e9-95c7-27732cb4ccc4.png) 
+![basic information form](https://user-images.githubusercontent.com/39189687/52851837-06ced700-310f-11e9-9685-85e42d444b1d.png) 
+![quiz page](https://user-images.githubusercontent.com/39189687/52851834-06ced700-310f-11e9-88a1-9458cdf9d298.png) 
+![results page](https://user-images.githubusercontent.com/39189687/52851839-06ced700-310f-11e9-9f1f-060164c14898.png) 
+![single page view](https://user-images.githubusercontent.com/39189687/52851838-06ced700-310f-11e9-8d5b-01a3f67f612b.png)
 
 --- 
 
