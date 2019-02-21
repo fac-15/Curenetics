@@ -49,3 +49,25 @@
 .select_container {
   position: relative;
 }
+
+/* filter button */
+.filter-button {
+  display: flex;
+  background-color: var(--dark-blue);
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  padding: 0.5rem 1.5rem 0.5rem 0;
+  cursor: pointer;
+}
+.filter-button:hover {
+  background-color: var(--med-blue);
+}
+
+.filter-button svg {
+  fill: white;
+  width: 3rem;
+  height: 2rem;
+}

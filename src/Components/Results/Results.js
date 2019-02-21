@@ -56,6 +56,17 @@ class Results extends React.Component {
     this.setState({ results: newResults });
   };
 
+  recentlyViewed = () => {
+    const items = Object.keys(window.localStorage);
+    // need to check items starts with /trials
+    const onlyTrials = items.filter(item => item.startsWith('"/trials/'));
+
+    let recentlyViewed = [];
+    onlyTrials.map(item => recentlyViewed.push(JSON.parse(localStorage.getItem(item))));
+    // set state
+    this.setState({ results: recentlyViewed });
+  };
+
   render() {
     const { isLoading, results, filterResults } = this.state;
     const noResultsMsg = "No results, sorry";
@@ -124,7 +135,7 @@ class Results extends React.Component {
             </Link>
 
             <h2 className="results-count">{resultsArray.length} results</h2>
-            <Filters onChange={this.handleChange} />
+            <Filters onChange={this.handleChange} onClick={this.recentlyViewed} />
             {displayResults}
           </section>
         );

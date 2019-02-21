@@ -12,9 +12,6 @@ import Keywords from "./Keywords";
 // get the linking thing
 import { Link } from "react-router-dom";
 
-// google map stuff
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
-
 // trial title
 const initalCap = str => str.charAt(0).toUpperCase() + str.slice(1);
 // slug for routing (from trial title)
@@ -51,68 +48,63 @@ const Card = props => {
   // - use distance matrix API (or a free version of this) to work out the distance apart
   if (postcodeEntered && hasPostcode) {
     // show how far away trial is from user entered address
-    const userPostcode = props.userInfo.postCode;
-    const trialPostcode = ukLocations[0].Facility.Address.Zip.replace(/ /g, "");
+    // const userPostcode = props.userInfo.postCode;
+    // const trialPostcode = ukLocations[0].Facility.Address.Zip.replace(/ /g, "");
     // console.log(userPostcode, trialPostcode);
-
-    const apiKey = "Ausvq83a6ukNg0_KjGutwIYLTSd4MnK7V_qQsir4Ma1_jeVKxTt-D8qK1t8LDLNV";
-    // const bingApi = postcode => {
-    fetch(`http://dev.virtualearth.net/REST/v1/Locations/UK/${userPostcode}?key=${apiKey}`)
-      .then(res => res.json())
-      .then(result => {
-        const a = result.resourceSets[0].resources[0].point.coordinates;
-        // console.log(a[0]);
-        // console.log(userPostcode, result.resourceSets[0].resources[0].point.coordinates);
-        // return result.resourceSets[0].resources[0].point.coordinates;
-        // const distance = distance(51.5112139, -0.119824, 48.8567, 2.3508, "M");
-
-        // make a request with the trial postcode - returns an API error for some
-        // - perhaps change the formatting?
-        console.log(index, "trial postcode is: ", trialPostcode);
-        fetch(`http://dev.virtualearth.net/REST/v1/Locations/UK/${trialPostcode}?key=${apiKey}`)
-          .then(res => res.json())
-          .then(resultTwo => {
-            const b = resultTwo.resourceSets[0].resources[0].point.coordinates;
-            // console.log(b[0]);
-            // console.log(trialPostcode, result.resourceSets[0].resources[0].point.coordinates);
-
-            //
-            // distance function - the haversine formula
-            // https://www.htmlgoodies.com/beyond/javascript/calculate-the-distance-between-two-points-in-your-web-apps.html
-            const distance = (lat1, lon1, lat2, lon2, unit) => {
-              const radlat1 = (Math.PI * lat1) / 180;
-              const radlat2 = (Math.PI * lat2) / 180;
-              const radlon1 = (Math.PI * lon1) / 180;
-              const radlon2 = (Math.PI * lon2) / 180;
-              const theta = lon1 - lon2;
-              const radtheta = (Math.PI * theta) / 180;
-              let dist =
-                Math.sin(radlat1) * Math.sin(radlat2) +
-                Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-              dist = Math.acos(dist);
-              dist = (dist * 180) / Math.PI;
-              dist = dist * 60 * 1.1515;
-              if (unit == "K") {
-                dist = dist * 1.609344;
-              }
-              if (unit == "N") {
-                dist = dist * 0.8684;
-              }
-              return dist;
-            };
-
-            //
-            const findDistance = distance(a[0], a[1], b[0], b[1], null);
-            console.log(index, "distance to", item.Keywords[0], "is: ", parseInt(findDistance));
-          })
-          .catch(errorTwo => console.log("bing api error, two"));
-      })
-      .catch(error => console.log("bing api error, one"));
+    // const apiKey = "";
+    // // const bingApi = postcode => {
+    // fetch(`http://dev.virtualearth.net/REST/v1/Locations/UK/${userPostcode}?key=${apiKey}`)
+    //   .then(res => res.json())
+    //   .then(result => {
+    //     const a = result.resourceSets[0].resources[0].point.coordinates;
+    //     // console.log(a[0]);
+    //     // console.log(userPostcode, result.resourceSets[0].resources[0].point.coordinates);
+    //     // return result.resourceSets[0].resources[0].point.coordinates;
+    //     // const distance = distance(51.5112139, -0.119824, 48.8567, 2.3508, "M");
+    //     // make a request with the trial postcode - returns an API error for some
+    //     // - perhaps change the formatting?
+    //     console.log(index, "trial postcode is: ", trialPostcode);
+    //     fetch(`http://dev.virtualearth.net/REST/v1/Locations/UK/${trialPostcode}?key=${apiKey}`)
+    //       .then(res => res.json())
+    //       .then(resultTwo => {
+    //         const b = resultTwo.resourceSets[0].resources[0].point.coordinates;
+    //         // console.log(b[0]);
+    //         // console.log(trialPostcode, result.resourceSets[0].resources[0].point.coordinates);
+    //         //
+    //         // distance function - the haversine formula
+    //         // https://www.htmlgoodies.com/beyond/javascript/calculate-the-distance-between-two-points-in-your-web-apps.html
+    //         const distance = (lat1, lon1, lat2, lon2, unit) => {
+    //           const radlat1 = (Math.PI * lat1) / 180;
+    //           const radlat2 = (Math.PI * lat2) / 180;
+    //           const radlon1 = (Math.PI * lon1) / 180;
+    //           const radlon2 = (Math.PI * lon2) / 180;
+    //           const theta = lon1 - lon2;
+    //           const radtheta = (Math.PI * theta) / 180;
+    //           let dist =
+    //             Math.sin(radlat1) * Math.sin(radlat2) +
+    //             Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+    //           dist = Math.acos(dist);
+    //           dist = (dist * 180) / Math.PI;
+    //           dist = dist * 60 * 1.1515;
+    //           if (unit == "K") {
+    //             dist = dist * 1.609344;
+    //           }
+    //           if (unit == "N") {
+    //             dist = dist * 0.8684;
+    //           }
+    //           return dist;
+    //         };
+    //         //
+    //         const findDistance = distance(a[0], a[1], b[0], b[1], null);
+    //         console.log(index, "distance to", item.Keywords[0], "is: ", parseInt(findDistance));
+    //       })
+    //       .catch(errorTwo => console.log("bing api error, two"));
+    //   })
+    //   .catch(error => console.log("bing api error, one"));
     // };
     // const a = bingApi(userPostcode);
     // const b = bingApi(trialPostcode);
     // console.log(a);
-
     // const distance = distance(a[0], a[0], b[0], b[0], "M");
     // console.log(distance);
   }

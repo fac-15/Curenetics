@@ -1,5 +1,6 @@
 import React from "react";
 import Dropdown from "./Dropdown";
+import Viewed from "./Viewed";
 
 import "./Filters.css";
 
@@ -60,6 +61,7 @@ class Filters extends React.Component {
           icon={tick}
           handleChange={this.props.onChange}
         />
+        <Viewed recentlyViewed={this.props.onClick} />
       </div>
     );
   }
