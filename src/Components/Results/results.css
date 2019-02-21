@@ -36,6 +36,7 @@
   background-color: var(--red);
   color: white;
   padding: 0.25rem 0.5rem;
+  line-height: 2.0rem;
 }
 
 /* rows */
