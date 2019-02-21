@@ -80,6 +80,7 @@ For the first round of user testing, we tested our initial prototype with 3 PIs 
 
 The feedback revolved around missing fields (trial criteria), the difference between trial phase and disease stage, and more. Detailed feedback is documented in [this issue](https://github.com/fac-15/Curenetics/issues/24). 
 
+![testing](https://www.dropbox.com/s/2oyw012bciewfoc/testing-curenetics-susan_sm.png?raw=1)
 #### 2. MVP User Testing: 
 
 For the second round of user testing we met with two medical students. 
