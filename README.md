@@ -1,5 +1,4 @@
 # Curenetics Documentation
-21 Feb 2019
 
 Find this app online at https://curenetics.netlify.com/ or run it locally: 
 1. Clone this repo
