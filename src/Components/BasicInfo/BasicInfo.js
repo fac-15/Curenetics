@@ -69,7 +69,7 @@ class BasicInfo extends React.Component {
         <h1>Basic Information</h1>
         <form action="/trials" className="basic-form">
           <label htmlFor="postcode" className="form-text">
-            Full UK Post Code *
+            Full UK postcode *
           </label>
           <input
             id="postcode"
