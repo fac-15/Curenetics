@@ -67,5 +67,6 @@ typings/
 # dist folder
 /dist
 
-# api keys
+# api keys folder
 /api_keys
+api_keys/
