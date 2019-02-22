@@ -6,6 +6,10 @@ import Card from "../Card/Card";
 
 import { Link } from "react-router-dom";
 
+// postcode distances
+import { apiKey } from "../../../api_keys/bing_key";
+import { straightDistance } from "../../Functions/distance";
+
 class Results extends React.Component {
   state = {
     results: [],
@@ -13,10 +17,16 @@ class Results extends React.Component {
     filterResults: {
       recruiting: "",
     },
+    recent: "",
   };
 
   componentDidMount() {
     this.getTrials();
+    const items = Object.keys(window.localStorage);
+    const onlyTrials = items.filter(item => item.startsWith('"/trials/'));
+    this.setState({
+      recent: onlyTrials.length,
+    });
   }
 
   getTrials = () => {
@@ -25,12 +35,130 @@ class Results extends React.Component {
     const distance = "100";
     fetch(`${baseUrl}${postCode || "B152TH"}/${distance}/${gender || "m"}/${age || "70"}/.json`)
       .then(res => res.json())
-      .then(result =>
-        this.setState({
-          results: result.results,
-          isLoading: false,
-        })
-      )
+      .then(result => {
+        // 1. user not entered postcode:
+        // - set state to all trials
+        // 2. user entered postcode:
+        // i) map over results
+        // - a) item does NOT have a postcode:
+        //   - return item
+        // - b) item HAS a postcode:
+        //   i) fetch user postcode
+        //   ii) THEN fetch trial postcode
+        //   iii) THEN run distance function
+        //   iv) THEN add distance to item and return
+        //   - then set state to final results mapped in 2
+
+        // 1.
+        if (postCode.length === 0) {
+          this.setState({
+            results: result.results,
+            isLoading: false,
+          });
+        }
+
+        // 2.
+        else {
+          // - - - - - - - -
+          // problem - addDistance is async if the users enters their postcode
+          // - setState happens before the api calls to bing are made
+
+          // - - - -
+          // This part will add distance from the user to the trial if:
+          // - a postcode is entered for the trial
+          // const addDistance = result.results.map(item => {
+          //   // get postcode (for the first UK trial in the list)
+          //   const getUkLocation = locations => {
+          //     return locations.filter(
+          //       location => location.Facility.Address.Country === "United Kingdom"
+          //     );
+          //   };
+          //   const ukLocations = getUkLocation(item.Locations);
+          //   const hasPostcode = !!ukLocations[0].Facility.Address.Zip;
+
+          //   // a) item does NOT have a postcode
+          //   if (!hasPostcode) {
+          //     return item;
+          //   }
+          //   // b) item HAS a postcode
+          //   else {
+          //     // get user entered address and trial postcode
+          //     const userPostcode = item.userInfo.postCode;
+          //     const trialPostcode = ukLocations[0].Facility.Address.Zip.replace(/ /g, "");
+          //     // console.log(userPostcode, trialPostcode);
+          //     // return userPostcode;
+          //     // set up 2 bing API calls
+          //     // const bingApi = postcode => {
+          //     fetch(
+          //       `http://dev.virtualearth.net/REST/v1/Locations/UK/${userPostcode}?key=${apiKey}`
+          //     )
+          //       .then(res => res.json())
+          //       .then(result => {
+          //         const a = result.resourceSets[0].resources[0].point.coordinates;
+          //         // console.log(index, "trial postcode is: ", trialPostcode);
+          //         fetch(
+          //           `http://dev.virtualearth.net/REST/v1/Locations/UK/${trialPostcode}?key=${apiKey}`
+          //         )
+          //           .then(res => res.json())
+          //           .then(resultTwo => {
+          //             const b = resultTwo.resourceSets[0].resources[0].point.coordinates;
+          //             // distance function
+          //             // - get distance between two points in a straight line
+          //             const findDistance = straightDistance(a[0], a[1], b[0], b[1], null);
+          //             item.distanceFromUser = findDistance;
+          //             return item;
+          //             // console.log(
+          //             //   index,
+          //             //   "distance to",
+          //             //   item.Keywords[0],
+          //             //   "is: ",
+          //             //   parseInt(findDistance)
+          //             // );
+          //           })
+          //           .catch(errorTwo => console.log("bing api error, two"));
+          //       })
+          //       .catch(error => console.log("bing api error, one"));
+          //   }
+          // });
+          // console.log(addDistance);
+          const list = result.results;
+
+          const functionWithPromise = item => {
+            // a function that returns a promise
+            return Promise.resolve(item);
+          };
+
+          const anAsyncFunction = async item => {
+            return await functionWithPromise(item);
+          };
+
+          // try promise all stuff here
+          const getData = async () => {
+            return await Promise.all(list.map(item => anAsyncFunction(item)));
+          };
+
+          const addDistance = getData();
+          // console.log(addDistance);
+
+          // hold off setting state until addDistance is populated
+          this.setState({
+            results: addDistance,
+            isLoading: false,
+          });
+        }
+
+        // if (addDistance[0] === undefined) {
+        //   finalResults = addDistance;
+        // } else {
+        //   finalResults = result.results;
+        // }
+
+        // this won't work properly:
+        // - if the first item is missing
+        // const finalResults = addDistance[0] === undefined ? result.results : addDistance;
+        // console.log(finalResults);
+      })
+
       .catch(error =>
         this.setState({
           isLoading: false,
@@ -64,7 +192,9 @@ class Results extends React.Component {
     let recentlyViewed = [];
     onlyTrials.map(item => recentlyViewed.push(JSON.parse(localStorage.getItem(item))));
     // set state
-    this.setState({ results: recentlyViewed });
+    this.setState({
+      results: recentlyViewed,
+    });
   };
 
   render() {
@@ -135,7 +265,11 @@ class Results extends React.Component {
             </Link>
 
             <h2 className="results-count">{resultsArray.length} results</h2>
-            <Filters onChange={this.handleChange} onClick={this.recentlyViewed} />
+            <Filters
+              onChange={this.handleChange}
+              onClick={this.recentlyViewed}
+              numberViewed={this.state.recent}
+            />
             {displayResults}
           </section>
         );
