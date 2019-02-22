@@ -20,9 +20,11 @@ const Keywords = keywords => {
         <h4>Keywords:</h4>
 
         <ul className="keyword-tags">
-          {keywords.data
-            ? keywords.data.map(keyword => <li key={keyword}>{keyword}</li>)
-            : "Clinical Study"}
+          {keywords.data ? (
+            keywords.data.map(keyword => <li key={keyword}>{keyword}</li>)
+          ) : (
+            <li>Clinical Study</li>
+          )}
         </ul>
       </div>
     </div>

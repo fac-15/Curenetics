@@ -6,25 +6,25 @@ import "./home.css";
 const Home = () => {
   return (
     <section className="main-section home">
-      <h1>Hello, would you like help to find a clinical trail?</h1>
-      <h2>Prostate Cancer Trials</h2>
+      <h1>Hello, would you like help to find a clinical trial?</h1>
+      <h2>Prostate cancer trials</h2>
 
       <button className="link-button medium-blue">
-        <Link to="/basic-info">Find a Trial</Link>
+        <Link to="/basic-info">Find a trial</Link>
       </button>
 
       <button className="link-button dark-blue">
-        <Link to="/trials">View all Trials</Link>
+        <Link to="/trials">View all trials</Link>
       </button>
 
       <svg
-        aria-labelledby="curenetics"
+        aria-labelledby="big-logo"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 237.2 231.37"
         className="body-logo"
       >
-        <title id="curenetics" lang="en">
-          Curenetics Clinical Trials
+        <title id="big-logo" lang="en">
+          Curenetics Clinical Trials Logo
         </title>
         <ellipse cx="45.13" cy="44" rx="44.97" ry="43.91" />
         <ellipse cx="192.03" cy="187.38" rx="44.97" ry="43.91" />
