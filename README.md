@@ -27,7 +27,7 @@ Dr Sola Adeleke (MRCP, MBA Oncology Research), the founder of Curenetics, is an 
 ---
 
 ### User journey: 
-
+![spalsh page](https://www.dropbox.com/s/jzxhewc33w5epsz/c-2-journey.png?raw=1)
 Upon opening the app I as a patient am reassured that it is secure and reliable. I put in a minimum amount of information and I do not feel intimidated or frustrated by medical jargon. Finally, I am taken to a list of results which are sorted according to how relevant they are to me. When I select one trial from the list I can get more information from it.
   
 ---
