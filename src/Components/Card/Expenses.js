@@ -1,0 +1,27 @@
+import React from "react";
+const Expenses = () => {
+  return (
+    <div className="card-row">
+      <div>
+        <svg
+          aria-labelledby="expenses"
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          viewBox="0 0 48 48"
+        >
+          <title id="expenses" lang="en">
+            Expenses:
+          </title>
+          <path d="M8 31c0 3.87 3.14 7 7 7l-3 3v1h24v-1l-3-3c3.87 0 7-3.13 7-7V10c0-7-7.16-8-16-8S8 3 8 10v21zm16 3c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm12-14H12V10h24v10z" />
+        </svg>
+      </div>
+      <div>
+        <span className="small-heading">Travel Expenses:</span>
+        <span className="missing-data">Data Missing From API</span>
+        {/* {Math.floor(Math.random() * Math.floor(3) + 1)} */}
+      </div>
+    </div>
+  );
+};
+export default Expenses;

@@ -1,0 +1,42 @@
+/* results css to go here */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+.small-card-q {
+  position: relative;
+  background-color: white;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.25rem 0.35rem 0.5rem rgba(0, 0, 0, 0.25);
+  transition: 0.4s;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: var(--bold);
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+  transition: 0.4s;
+  transition: 0.4s display ease-out;
+}

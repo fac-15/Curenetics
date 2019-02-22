@@ -1,96 +1,156 @@
 import React from "react";
 import "./results.css";
-// import SmallCard from "../SmallCard/SmallCard";
 
-// maybe move these out of small card
-const back = require("../SmallCard/arrow-backward.svg");
-const forward = require("../SmallCard/arrow-forward.svg");
-// const tick = require("../SmallCard/tick.svg");
-// const cross = require("../SmallCard/cross.svg");
-const calendar = require("../SmallCard/calendar.svg");
-const marker = require("../SmallCard/marker.svg");
-const file = require("../SmallCard/summary-file.svg");
+import Filters from "../Filters/Filters";
+import Card from "../Card/Card";
 
-const Results = props => {
-  // get results, error messages etc
-  const resultsList = props.results.results.results;
-  const noResultsMsg = props.results.noResultsMsg;
+import { Link } from "react-router-dom";
 
-  // prepare the results list
-  const resultsArray = resultsList.map(item => (
-    // make variables for things to keep them readable
+class Results extends React.Component {
+  state = {
+    results: [],
+    isLoading: true,
+    filterResults: {
+      recruiting: "",
+    },
+  };
 
-    <li className="small-card" key={item.IDInfo.OrgStudyID}>
-      <div className="card-row">
-        {item.Locations[0].Status ? (
-          <>
-            <div className="open">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                <path d="M18 32.34L9.66 24l-2.83 2.83L18 38l24-24-2.83-2.83z" />
-              </svg>
-            </div>
-            <div className="open">Recruiting</div>
-          </>
-        ) : (
-          <>
-            <div className="closed">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                <path d="M38 12.83L35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z" />
-              </svg>
-            </div>
-            <div className="closed">Not Recruiting</div>
-          </>
-        )}
-      </div>
-      <h3>Title of Trial</h3>
-      <div className="card-row">
-        <div>
-          <img src={calendar} alt="starting date of trial" />
-        </div>
-        <div>Starting Date: starting date</div>
-      </div>
-      <div className="card-row">
-        <div>
-          <img src={marker} alt="location of trial" />
-        </div>
-        <div>{item.Locations[0].Facility.Name}</div>
-      </div>
-      <div className="card-row">
-        <div>
-          <img src={file} alt="summaryof trial" />
-        </div>
-        <div>Summary:</div>
-      </div>
+  componentDidMount() {
+    this.getTrials();
+  }
 
-      {/* <p>Gender: {item.Gender}</p>
-      <p>Location : {item.Locations[0].Facility.Name}</p>
-      <p>Zip: {item.Locations[0].Facility.Address.Zip}</p>
+  getTrials = () => {
+    const { postCode, age, gender } = this.props.userInfo;
+    const baseUrl = "https://curenetics-api.herokuapp.com/data/trials/uk/";
+    const distance = "100";
+    fetch(`${baseUrl}${postCode || "B152TH"}/${distance}/${gender || "m"}/${age || "70"}/.json`)
+      .then(res => res.json())
+      .then(result =>
+        this.setState({
+          results: result.results,
+          isLoading: false,
+        })
+      )
+      .catch(error =>
+        this.setState({
+          isLoading: false,
+          results: [],
+          error,
+        })
+      );
+  };
 
-      <ul>
-        Conditions:
-        {item.Conditions.map(con => (
-          <li key={con} style={{ marginLeft: "2rem" }}>
-            {con}
+  handleChange = filterResults => {
+    this.setState(prevState => ({
+      filterResults: {
+        ...prevState.filterResults,
+        recruiting: filterResults,
+      },
+    }));
+  };
+
+  handleDelete = id => {
+    const currentResults = this.state.results;
+    // console.log(currentResults);
+    const newResults = currentResults.filter(item => item.IDInfo.NCTID !== id);
+    this.setState({ results: newResults });
+  };
+
+  recentlyViewed = () => {
+    const items = Object.keys(window.localStorage);
+    // need to check items starts with /trials
+    const onlyTrials = items.filter(item => item.startsWith('"/trials/'));
+
+    let recentlyViewed = [];
+    onlyTrials.map(item => recentlyViewed.push(JSON.parse(localStorage.getItem(item))));
+    // set state
+    this.setState({ results: recentlyViewed });
+  };
+
+  render() {
+    const { isLoading, results, filterResults } = this.state;
+    const noResultsMsg = "No results, sorry";
+
+    if (isLoading) {
+      return (
+        <section className="main-section">
+          <Link className="back-link" to="/">
+            <svg
+              aria-labelledby="back"
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+            >
+              <title id="back" lang="en">
+                Back to Home
+              </title>
+              <path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z" />
+            </svg>
+          </Link>
+          <h2 className="results-count">Results are loading</h2>
+        </section>
+      );
+    }
+    if (!isLoading && results) {
+      // make sure there are some results
+      if (results.length > 0) {
+        let resultsList = results;
+        if (filterResults.recruiting === "true") {
+          resultsList = resultsList.filter(result => result.Locations[0].Status === "Recruiting");
+        }
+
+        const resultsArray = resultsList.map((item, index) => (
+          <li className="small-card" key={item.IDInfo.NCTID}>
+            <Card
+              data={{ item, index }}
+              delete={this.handleDelete}
+              userInfo={this.props.userInfo}
+            />
           </li>
-        ))}
-      </ul> */}
-    </li>
-  ));
+        ));
 
-  // if there are no results, display an error message
-  const displayResults =
-    resultsArray.length > 0 ? (
-      <ul className="results-list">{resultsArray}</ul>
-    ) : (
-      <p>{noResultsMsg}</p>
-    );
+        const displayResults =
+          resultsArray.length > 0 ? (
+            <ul className="results-list">{resultsArray}</ul>
+          ) : (
+            <p>{noResultsMsg}</p>
+          );
 
-  return (
-    <section className="main-section">
-      <h2>{resultsList.length} results</h2>
-      {displayResults}
-    </section>
-  );
-};
+        return (
+          <section className="main-section">
+            <Link className="back-link" to="/">
+              <svg
+                aria-labelledby="back"
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+              >
+                <title id="back" lang="en">
+                  Back to Trials
+                </title>
+                <path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z" />
+              </svg>
+            </Link>
+
+            <h2 className="results-count">{resultsArray.length} results</h2>
+            <Filters onChange={this.handleChange} onClick={this.recentlyViewed} />
+            {displayResults}
+          </section>
+        );
+      }
+
+      // no results
+      else {
+        return (
+          <section className="main-section">
+            <h2 className="results-count">{noResultsMsg}</h2>
+          </section>
+        );
+      }
+    }
+  }
+}
 
 export default Results;

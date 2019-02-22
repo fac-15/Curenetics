@@ -9,6 +9,8 @@ class BasicInfo extends React.Component {
     postCode: "",
     age: "",
     consent: false,
+    ageValid: true,
+    postCodeValid: true,
   };
 
   handleOptionChange = event => {
@@ -26,15 +28,36 @@ class BasicInfo extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const { gender, postCode, age, consent } = this.state;
+
+    // regex to test valid postcode
+    const postCodeChecker = /([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))s?[0-9][A-Za-z]{2})/;
+    // remove postcode spaces
+    const postCodeMatch = postCode.replace(/\s/g, "").match(postCodeChecker);
+    //console.log("no spaces: ", postCodeMatch);
+
+    // go to all results - no consent
     if (consent === false) {
-      this.props.history.push("/results");
-    } else {
-      if (!gender || !postCode || !age || consent === null) {
-        alert("all fields must be filled");
-      } else {
+      this.props.history.push("/trials");
+    }
+    // consent not given
+    else {
+      // postcode
+      if (!postCode || !postCodeMatch) {
+        // need to check if postcode is valid, if not it breaks the api call
+        this.setState({ postCodeValid: false });
+      }
+
+      // age
+      // - sometimes works - type inferral?
+      else if (!age || age > 150) {
+        this.setState({ ageValid: false });
+      }
+
+      // one or more fields filled in: get specific results
+      else {
         if (this.state.consent === true) {
           this.props.onSubmit(this.state);
-          this.props.history.push("/results");
+          this.props.history.push("/trials");
         }
       }
     }
@@ -44,11 +67,26 @@ class BasicInfo extends React.Component {
     return (
       <section className="main-section">
         <h1>Basic Information</h1>
-        <form action="/results" className="basic-form">
-          <h3 className="form-text">Post Code *</h3>
-          <input onChange={this.handlePostCode} type="text" />
-          <h3 className="form-text">Age *</h3>
-          <input type="number" onChange={this.handleAgeChange} />
+        <form action="/trials" className="basic-form">
+          <label htmlFor="postcode" className="form-text">
+            Full UK postcode *
+          </label>
+          <input
+            id="postcode"
+            onChange={this.handlePostCode}
+            type="text"
+            className={this.state.postCodeValid ? "text-input" : "text-input text-invalid"}
+          />
+          <label htmlFor="age" className="form-text">
+            Age *
+          </label>
+          <input
+            id="age"
+            type="number"
+            onChange={this.handleAgeChange}
+            className={this.state.ageValid ? "text-input" : "text-input text-invalid"}
+          />
+
           <p className="form-text">Gender</p>
           <div className="row">
             <label className="radio-container">
@@ -80,18 +118,18 @@ class BasicInfo extends React.Component {
             </label>
           </div>
           <div className="consent-card">
-            <p>Are you ok with us using your selection to filter results for you?</p>
+            <p>Are you OK with us using your selection to filter your results?</p>
             <div className="button-spacing">
               <button
                 type="button"
-                className="general-button consent-button"
+                className={this.state.consent ? "consent-button toggled" : "consent-button"}
                 onClick={() => this.setState({ consent: true })}
               >
                 Yes
               </button>
               <button
                 type="button"
-                className="general-button consent-button"
+                className={this.state.consent ? "consent-button" : "consent-button toggled"}
                 onClick={() => this.setState({ consent: false })}
               >
                 No

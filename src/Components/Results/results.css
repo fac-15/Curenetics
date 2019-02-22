@@ -4,24 +4,146 @@
   flex-direction: column;
 }
 .small-card {
+  position: relative;
   background-color: white;
   margin-top: 1rem;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0.25rem 0.35rem 0.5rem rgba(0, 0, 0, 0.25);
 }
+.card-inner {
+  padding-bottom: 4rem;
+}
+
+/* headings */
+.results-count {
+  text-transform: uppercase;
+}
+.small-card h3 {
+  font-size: 1.8rem;
+  font-weight: var(--bold);
+}
+.small-card h4 {
+  margin-bottom: 0.5rem;
+  font-weight: var(--bold);
+}
+.small-card .small-heading {
+  margin-right: 1rem;
+  font-weight: var(--bold);
+}
+
+.missing-data {
+  background-color: var(--red);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+}
+
+/* rows */
 .card-row {
   display: flex;
   align-items: center;
+  /* align-items: flex-start; */
   line-height: 1;
+  margin-top: 1rem;
+}
+.card-row:first-child {
+  margin-top: 0;
 }
 
-/* open closed states */
-.open {
-  color: var(--green);
+/* svgs */
+.card-row > div:first-child {
+  fill: var(--dark-grey);
+  min-width: 3rem;
+}
+
+.card-row > div:first-child svg {
+  width: 3rem;
+  height: 2rem;
+}
+
+/* open state */
+.card-row > div:first-child.open {
   fill: var(--green);
 }
-.closed {
-  color: var(--red);
+.card-row > div:first-child.open ~ div {
+  color: var(--green);
+}
+/* closed state */
+.card-row > div:first-child.closed {
   fill: var(--red);
+}
+.card-row > div:first-child.closed ~ div {
+  color: var(--red);
+}
+
+/* keywords */
+.keyword-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.5rem;
+}
+.keyword-tags li {
+  padding: 0.35rem 0.5rem;
+  margin: 0 0.5rem 0.5rem 0;
+  border-radius: 0.5rem;
+  background-color: var(--med-grey);
+  font-size: 1.1rem;
+}
+
+/* view more link */
+.view-more {
+  height: 3.5rem;
+  font-size: 1.6rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  text-decoration: none;
+  background-color: var(--darker-blue);
+  color: white;
+  fill: white;
+  transition: all ease-in-out 0.3s;
+}
+.view-more svg {
+  width: 2rem;
+  height: 2rem;
+  transition: all ease-in-out 0.3s;
+}
+
+.view-more:hover {
+  background-color: var(--dark-blue);
+}
+.view-more:hover svg {
+  transform: translateX(0.5rem);
+}
+
+/* back links */
+.back-link {
+  fill: var(--darker-blue);
+  position: absolute;
+  top: 1rem;
+  transition: all ease-in-out 0.3s;
+}
+.back-link:hover {
+  transform: translateX(-0.5rem);
+}
+
+.delete-button {
+  fill: var(--dark-grey);
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #e2e2e2;
 }
