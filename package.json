@@ -43,5 +43,12 @@
     "parcel-bundler": "^1.11.0",
     "prettier": "^1.16.4",
     "react-testing-library": "^5.4.4"
-  }
+  },
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
 }

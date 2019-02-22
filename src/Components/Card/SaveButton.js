@@ -39,7 +39,7 @@ const SaveButton = () => {
         </button>
       </div>
       <div>
-        <span className="small-heading">Click to Save as a PDF to take to your doctor</span>
+        <span className="small-heading">Click to save as a PDF to take to your doctor</span>
       </div>
     </div>
   );
