@@ -15,7 +15,8 @@ We implemented the following technologies to accomplish this:
 - ReactJS 
 - NodeJS 
 - Jest
-
+- ESLint and Prettier
+- Parcel
 ---
 
 ## About Curenetics
@@ -25,7 +26,22 @@ The Curenetics app aims to connect cancer patients to clinical trials that are a
 Dr Sola Adeleke (MRCP, MBA Oncology Research), the founder of Curenetics, is an oncologist with extensive experience in clinical trials, a clinical research fellow at UCL and is actively involved in cancer research. Sola is devoted to making clinical trials more accessible to patients and clinicians as well as matching the right patients to the right trials within the NHS.
 
 ---
+ 
+### UI Sketches
+Inital sketches were made to work out the contents and flow of the app.
+![](https://i.imgur.com/mOYSg6p.jpg)
 
+### Prototyping:
+We built our original prototype in Figma. Drawing inspiration from the design of other medical apps and services. It showcases the fully fledged idea of what Curenetics will be including stretch goals such as an interactive quiz to get more information from the patient.
+
+
+![spalsh page](https://www.dropbox.com/s/1d2mhd1fd9wi2o9/figma1.png?raw=1) 
+![basic information form](https://user-images.githubusercontent.com/39189687/52851837-06ced700-310f-11e9-9685-85e42d444b1d.png) 
+![quiz page](https://user-images.githubusercontent.com/39189687/52851834-06ced700-310f-11e9-88a1-9458cdf9d298.png) 
+![results page](https://user-images.githubusercontent.com/39189687/52851839-06ced700-310f-11e9-9f1f-060164c14898.png) 
+![single page view](https://user-images.githubusercontent.com/39189687/52851838-06ced700-310f-11e9-8d5b-01a3f67f612b.png)
+
+--- 
 ### User journey: 
 ![spalsh page](https://www.dropbox.com/s/jzxhewc33w5epsz/c-2-journey.png?raw=1)
 Upon opening the app I as a patient am reassured that it is secure and reliable. I put in a minimum amount of information and I do not feel intimidated or frustrated by medical jargon. Finally, I am taken to a list of results which are sorted according to how relevant they are to me. When I select one trial from the list I can get more information from it.
@@ -59,18 +75,7 @@ What the app still needs:
 
 --- 
 
-### Prototyping: 
 
-We built our original prototype in Figma. Drawing inspiration from the design of other medical apps and services. It showcases the fully fledged idea of what Curenetics will be including stretch goals such as an interactive quiz to get more information from the patient.
-
-
-![spalsh page](https://www.dropbox.com/s/1d2mhd1fd9wi2o9/figma1.png?raw=1) 
-![basic information form](https://user-images.githubusercontent.com/39189687/52851837-06ced700-310f-11e9-9685-85e42d444b1d.png) 
-![quiz page](https://user-images.githubusercontent.com/39189687/52851834-06ced700-310f-11e9-88a1-9458cdf9d298.png) 
-![results page](https://user-images.githubusercontent.com/39189687/52851839-06ced700-310f-11e9-9f1f-060164c14898.png) 
-![single page view](https://user-images.githubusercontent.com/39189687/52851838-06ced700-310f-11e9-8d5b-01a3f67f612b.png)
-
---- 
 
 ### User Testing process:
 
